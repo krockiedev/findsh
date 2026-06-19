@@ -54,16 +54,16 @@ mesh = SubResource("BoxMesh_mn261")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.898046, 6.2071905)
 mesh = SubResource("BoxMesh_mdal7")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646801500]
+[node name="OceanDepth" type="WorldEnvironment" parent="." unique_id=646801500]
 environment = SubResource("Environment_ogne1")
 
-[node name="Submarine" parent="." unique_id=1938863406 instance=ExtResource("2_fiuhb")]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1016204336]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1016204336]
 transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.7253744, 0, 0, 0)
 light_color = Color(1.540184e-06, 0.855967, 0.8580621, 1)
 light_specular = 6.7
 shadow_enabled = true
+
+[node name="Submarine" parent="." unique_id=1938863406 instance=ExtResource("2_fiuhb")]
 
 [node name="SmallFish" parent="." unique_id=1261512445 instance=ExtResource("3_mn261")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80088484, 0, 4.829066)

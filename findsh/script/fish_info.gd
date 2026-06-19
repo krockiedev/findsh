@@ -1,7 +1,7 @@
 extends Control
 
-@export var current_fish = ""
-var pressed_fish
+var current_fish = ""
+var pressed_fish = ""
 
 func _physics_process(delta: float) -> void:
 	if current_fish != "": 

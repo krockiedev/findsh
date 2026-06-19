@@ -1,7 +1,31 @@
 [gd_scene format=3 uid="uid://d4h7ar3h2a1ke"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_fiuhb"]
-size = Vector3(0.85095215, 0.811676, 1.1333008)
+[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_r6it2"]
+[ext_resource type="Material" uid="uid://h2m3hjp6a31k" path="res://assets/fish_outline.tres" id="2_ennet"]
 
-[node name="MediumFish" type="MeshInstance3D" unique_id=31327315]
-mesh = SubResource("BoxMesh_fiuhb")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m4pi"]
+next_pass = ExtResource("2_ennet")
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
+material = SubResource("StandardMaterial3D_7m4pi")
+size = Vector3(1.588623, 1.3237, 2.2513428)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mdal7"]
+size = Vector3(1.1738281, 1.1247559, 2.3984375)
+
+[node name="Medium_Fish" type="Area3D" unique_id=335977634]
+script = ExtResource("1_r6it2")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1805165206]
+transform = Transform3D(0.5375844, 0, 0, 0, 0.6808206, 0, 0, 0, 0.8126461, 0.0062091937, 0.0029075644, 0.0017309994)
+mesh = SubResource("BoxMesh_a1ohp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1765895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062091937, 0.0029075644, 0.0017309994)
+shape = SubResource("BoxShape3D_mdal7")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="." to="." method="_on_fish_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

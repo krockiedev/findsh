@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2vgan0axavxs" path="res://script/player.gd" id="1_3vyb7"]
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_g2els"]
+[ext_resource type="Script" uid="uid://b8q1mds70sva7" path="res://script/camerascript.gd" id="2_qhqgy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
 render_priority = 0
@@ -22,6 +23,7 @@ material = SubResource("StandardMaterial3D_mdal7")
 script = ExtResource("1_3vyb7")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1203079014]
+script = ExtResource("2_qhqgy")
 
 [node name="CameraWave" type="MeshInstance3D" parent="Camera3D" unique_id=2114659989]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)

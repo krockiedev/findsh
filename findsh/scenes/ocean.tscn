@@ -1,41 +1,9 @@
 [gd_scene format=3 uid="uid://dvccpk6btlh2c"]
 
 [ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
-[ext_resource type="Texture2D" uid="uid://drux5qgl8nc15" path="res://assets/tilapia.png" id="3_mn261"]
+[ext_resource type="PackedScene" uid="uid://cibhnllo05mne" path="res://scenes/player.tscn" id="2_fiuhb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mdal7"]
-
-[sub_resource type="Shader" id="Shader_fiuhb"]
-code = "shader_type spatial;
-render_mode unshaded, fog_disabled;
-
-uniform sampler2D screen_texture : hint_screen_texture;
-
-void fragment() {
-    // Calculate UV coordinates
-	vec2 uv = SCREEN_UV;
-    // Offset the UV coordinates based on a sine wave
-    uv.x += sin(SCREEN_UV.y * 2.5 + TIME) * 0.008; // Adjust the frequency and amplitude as needed
-    uv.y += sin(SCREEN_UV.x * 2.5 + TIME) * 0.008;
-
-    // Sample the texture using the modified UV coordinates
-    ALBEDO = texture(screen_texture, uv).rgb;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
-render_priority = 0
-shader = SubResource("Shader_fiuhb")
-
-[sub_resource type="QuadMesh" id="QuadMesh_mdal7"]
-material = SubResource("ShaderMaterial_7i2eo")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdal7"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.14901961, 1, 1, 0.22352941)
-
-[sub_resource type="QuadMesh" id="QuadMesh_7i2eo"]
-material = SubResource("StandardMaterial3D_mdal7")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ujswb"]
 sky_top_color = Color(0.4269967, 0.6238191, 0.8990127, 1)
@@ -53,18 +21,8 @@ reflected_light_source = 2
 script = ExtResource("1_fiuhb")
 
 [node name="Block" type="MeshInstance3D" parent="." unique_id=192466445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9839377)
 mesh = SubResource("BoxMesh_mdal7")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1971341619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08760595, 0.38502616, 1.5139129)
-
-[node name="CameraWave" type="MeshInstance3D" parent="Camera3D" unique_id=920034353]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)
-mesh = SubResource("QuadMesh_mdal7")
-
-[node name="Tint" type="MeshInstance3D" parent="Camera3D" unique_id=1173517537]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.13575459)
-mesh = SubResource("QuadMesh_7i2eo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646801500]
 environment = SubResource("Environment_mdal7")
@@ -73,10 +31,4 @@ environment = SubResource("Environment_mdal7")
 transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.7253744, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=437575161]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.045, 0, -2, 0)
-texture = ExtResource("3_mn261")
-
-[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=2020676736]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.045, 0, -4.0043726, 0)
-texture = ExtResource("3_mn261")
+[node name="Player" parent="." unique_id=1294710407 instance=ExtResource("2_fiuhb")]

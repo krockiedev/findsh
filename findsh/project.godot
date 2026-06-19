@@ -15,6 +15,10 @@ run/main_scene="uid://dvccpk6btlh2c"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+FishInfo="*uid://t0oty28sn0sl"
+
 [display]
 
 window/stretch/mode="canvas_items"

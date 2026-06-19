@@ -52,4 +52,5 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -
 shape = SubResource("ConcavePolygonShape3D_4kwec")
 
 [connection signal="input_event" from="Up_Button" to="." method="pressed_up"]
+[connection signal="mouse_entered" from="Up_Button" to="." method="_on_up_button_mouse_entered"]
 [connection signal="input_event" from="Down_Button" to="." method="pressed_down"]

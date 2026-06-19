@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://t0oty28sn0sl"]
+
+[ext_resource type="Script" uid="uid://bcjr5okwa3k5q" path="res://script/fish_info.gd" id="1_00l1l"]
+
+[node name="Fish_Info" type="Control" unique_id=690316]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_00l1l")
+
+[node name="Label" type="Label" parent="." unique_id=101630820]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "Fih"
+horizontal_alignment = 1
+vertical_alignment = 1

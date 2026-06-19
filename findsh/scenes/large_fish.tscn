@@ -5,7 +5,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bs85"]
 size = Vector3(2.3544922, 1.5355835, 2.7460632)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erwc4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m4pi"]
+albedo_color = Color(1, 0, 1, 1)
+grow = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
+material = SubResource("StandardMaterial3D_7m4pi")
 size = Vector3(1.588623, 1.3237, 2.2513428)
 
 [node name="InteractableFish" type="Area3D" unique_id=335977634]
@@ -16,4 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026855469, 0.018218994, 0.0
 shape = SubResource("BoxShape3D_6bs85")
 
 [node name="LargeFish" type="MeshInstance3D" parent="." unique_id=1805165206]
+material_override = SubResource("StandardMaterial3D_erwc4")
 mesh = SubResource("BoxMesh_a1ohp")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

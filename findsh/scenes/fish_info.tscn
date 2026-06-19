@@ -27,3 +27,5 @@ theme_override_font_sizes/font_size = 40
 text = "Fih"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="theme_changed" from="Label" to="." method="_on_label_theme_changed"]

@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://clyvaorjeacdb"]
 
 [ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_7m4pi"]
+[ext_resource type="Material" uid="uid://h2m3hjp6a31k" path="res://assets/fish_outline.tres" id="2_p6klq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bs85"]
 size = Vector3(2.3544922, 1.5355835, 2.7460632)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erwc4"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m4pi"]
+next_pass = ExtResource("2_p6klq")
 albedo_color = Color(1, 0, 1, 1)
 grow = true
 
@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026855469, 0.018218994, 0.0
 shape = SubResource("BoxShape3D_6bs85")
 
 [node name="LargeFish" type="MeshInstance3D" parent="." unique_id=1805165206]
-material_override = SubResource("StandardMaterial3D_erwc4")
 mesh = SubResource("BoxMesh_a1ohp")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

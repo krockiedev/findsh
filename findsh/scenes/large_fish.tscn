@@ -9,6 +9,7 @@ size = Vector3(2.3544922, 1.5355835, 2.7460632)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m4pi"]
 next_pass = ExtResource("2_p6klq")
 albedo_color = Color(1, 0, 1, 1)
+grow = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
 material = SubResource("StandardMaterial3D_7m4pi")

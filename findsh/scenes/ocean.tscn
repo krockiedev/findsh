@@ -12,25 +12,39 @@ size = Vector3(1.6311035, 2.0878906, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_mdal7"]
 size = Vector3(2.4980469, 1, 1)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ujswb"]
-sky_top_color = Color(0.4269967, 0.6238191, 0.8990127, 1)
-sky_horizon_color = Color(0.90994173, 0.5379891, 0.48068726, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjho5"]
+sky_top_color = Color(0.20392157, 0.68235296, 0.8352941, 1)
+sky_horizon_color = Color(0.14408252, 0.57294565, 0.706565, 1)
+ground_bottom_color = Color(0.0683559, 0.34361926, 0.4288784, 1)
+ground_horizon_color = Color(0.13840121, 0.56964415, 0.6977477, 1)
 
-[sub_resource type="Sky" id="Sky_0oxhw"]
-sky_material = SubResource("ProceduralSkyMaterial_ujswb")
+[sub_resource type="Sky" id="Sky_ogne1"]
+sky_material = SubResource("ProceduralSkyMaterial_vjho5")
 
-[sub_resource type="Environment" id="Environment_mdal7"]
-sky = SubResource("Sky_0oxhw")
-reflected_light_source = 2
+[sub_resource type="Environment" id="Environment_ogne1"]
+background_mode = 2
+background_color = Color(0, 0.65882355, 0.5647059, 1)
+sky = SubResource("Sky_ogne1")
+ambient_light_source = 2
+ambient_light_color = Color(0.2627451, 0.6862745, 0.5529412, 1)
+ambient_light_energy = 0.88
+tonemap_mode = 3
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.03137255, 0.1254902, 0.24313726, 1)
+fog_density = 1.0
+fog_depth_begin = 2.0
+fog_depth_end = 10.0
 
 [node name="Ocean" type="Node3D" unique_id=720181083]
 script = ExtResource("1_fiuhb")
 
 [node name="MediumFish" parent="." unique_id=31327315 instance=ExtResource("2_vjho5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047058105, 0.1091156, 6.14054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047058105, 0.1091156, 7.9763613)
+script = null
 
 [node name="LargeFish" parent="." unique_id=1805165206 instance=ExtResource("3_4imn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.449929, 0.16184998, 6.1901617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.449929, 0.16184998, 10.6224165)
 
 [node name="Block3" type="MeshInstance3D" parent="." unique_id=1169043958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.456055, 6.207)
@@ -41,10 +55,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.898046, 6.2071905)
 mesh = SubResource("BoxMesh_mdal7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646801500]
-environment = SubResource("Environment_mdal7")
+environment = SubResource("Environment_ogne1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1016204336]
 transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.7253744, 0, 0, 0)
+light_color = Color(1.540184e-06, 0.855967, 0.8580621, 1)
+light_specular = 6.7
 shadow_enabled = true
 
 [node name="Submarine" parent="." unique_id=1938863406 instance=ExtResource("2_fiuhb")]

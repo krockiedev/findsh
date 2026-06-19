@@ -1,7 +1,19 @@
 [gd_scene format=3 uid="uid://clyvaorjeacdb"]
 
+[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_7m4pi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bs85"]
+size = Vector3(2.3544922, 1.5355835, 2.7460632)
+
 [sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
 size = Vector3(1.588623, 1.3237, 2.2513428)
 
-[node name="LargeFish" type="MeshInstance3D" unique_id=1805165206]
+[node name="InteractableFish" type="Area3D" unique_id=335977634]
+script = ExtResource("1_7m4pi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=335585311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026855469, 0.018218994, 0.018478394)
+shape = SubResource("BoxShape3D_6bs85")
+
+[node name="LargeFish" type="MeshInstance3D" parent="." unique_id=1805165206]
 mesh = SubResource("BoxMesh_a1ohp")

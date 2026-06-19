@@ -32,6 +32,5 @@ shape = SubResource("BoxShape3D_6bs85")
 mesh = SubResource("BoxMesh_a1ohp")
 
 [connection signal="input_event" from="." to="." method="_on_fish_pressed"]
-[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

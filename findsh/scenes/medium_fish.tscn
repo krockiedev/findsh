@@ -1,21 +1,28 @@
 [gd_scene format=3 uid="uid://d4h7ar3h2a1ke"]
 
 [ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_r6it2"]
-[ext_resource type="Material" uid="uid://h2m3hjp6a31k" path="res://assets/fish_outline.tres" id="2_ennet"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m4pi"]
-next_pass = ExtResource("2_ennet")
-albedo_color = Color(1, 0, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5tag"]
+resource_local_to_scene = true
+cull_mode = 1
+shading_mode = 0
+grow_amount = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6it2"]
+resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_r5tag")
+albedo_color = Color(0, 0.25490198, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
-material = SubResource("StandardMaterial3D_7m4pi")
-size = Vector3(1.588623, 1.3237, 2.2513428)
+material = SubResource("StandardMaterial3D_r6it2")
+size = Vector3(1.8300781, 1.1096191, 3.0888672)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mdal7"]
 size = Vector3(1.1738281, 1.1247559, 2.3984375)
 
 [node name="Medium_Fish" type="Area3D" unique_id=335977634]
 script = ExtResource("1_r6it2")
+fish_name = "mid fih"
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1805165206]
 transform = Transform3D(0.5375844, 0, 0, 0, 0.6808206, 0, 0, 0, 0.8126461, 0.0062091937, 0.0029075644, 0.0017309994)

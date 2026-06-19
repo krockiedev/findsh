@@ -1,7 +1,38 @@
 [gd_scene format=3 uid="uid://b31mgblwlr0nj"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_6bs85"]
-size = Vector3(0.3, 0.3, 0.5)
+[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_ekacj"]
 
-[node name="SmallFish" type="MeshInstance3D" unique_id=1646356272]
-mesh = SubResource("BoxMesh_6bs85")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5tag"]
+resource_local_to_scene = true
+cull_mode = 1
+shading_mode = 0
+grow_amount = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m4pi"]
+resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_r5tag")
+albedo_color = Color(0.25490198, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ekacj"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_7m4pi")
+size = Vector3(0.5498047, 0.43725586, 1.123291)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mdal7"]
+size = Vector3(0.3544922, 0.40063477, 1)
+
+[node name="Small_Fish" type="Area3D" unique_id=335977634]
+script = ExtResource("1_ekacj")
+fish_name = "san diego"
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1805165206]
+transform = Transform3D(0.5375844, 0, 0, 0, 0.6808206, 0, 0, 0, 0.8126461, 0.0062091937, 0.0029075644, 0.0017309994)
+mesh = SubResource("BoxMesh_ekacj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1927111068]
+shape = SubResource("BoxShape3D_mdal7")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="." to="." method="_on_fish_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

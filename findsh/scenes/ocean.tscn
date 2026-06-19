@@ -1,8 +1,57 @@
 [gd_scene format=3 uid="uid://dvccpk6btlh2c"]
 
+[ext_resource type="Shader" path="res://assets/camera_underwater.gdshader" id="1_7i2eo"]
+[ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_mdal7"]
 
-[node name="Ocean" type="Node3D" unique_id=720181083]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
+render_priority = 0
+shader = ExtResource("1_7i2eo")
 
-[node name="tae tae tae" type="MeshInstance3D" parent="." unique_id=192466445]
+[sub_resource type="QuadMesh" id="QuadMesh_mdal7"]
+material = SubResource("ShaderMaterial_7i2eo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdal7"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.14901961, 1, 1, 0.22352941)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7i2eo"]
+material = SubResource("StandardMaterial3D_mdal7")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ujswb"]
+sky_top_color = Color(0.4269967, 0.6238191, 0.8990127, 1)
+sky_horizon_color = Color(0.90994173, 0.5379891, 0.48068726, 1)
+
+[sub_resource type="Sky" id="Sky_0oxhw"]
+sky_material = SubResource("ProceduralSkyMaterial_ujswb")
+
+[sub_resource type="Environment" id="Environment_mdal7"]
+background_mode = 2
+sky = SubResource("Sky_0oxhw")
+reflected_light_source = 2
+
+[node name="Ocean" type="Node3D" unique_id=720181083]
+script = ExtResource("1_fiuhb")
+
+[node name="Block" type="MeshInstance3D" parent="." unique_id=192466445]
 mesh = SubResource("BoxMesh_mdal7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1971341619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08760595, 0.38502616, 1.5139129)
+
+[node name="CameraWave" type="MeshInstance3D" parent="Camera3D" unique_id=920034353]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)
+mesh = SubResource("QuadMesh_mdal7")
+
+[node name="Tint" type="MeshInstance3D" parent="Camera3D" unique_id=1173517537]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)
+mesh = SubResource("QuadMesh_7i2eo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646801500]
+environment = SubResource("Environment_mdal7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1016204336]
+transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.7253744, 0, 0, 0)
+shadow_enabled = true

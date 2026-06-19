@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://dvccpk6btlh2c"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_mdal7"]
+
 [node name="Ocean" type="Node3D" unique_id=720181083]
+
+[node name="tae tae tae" type="MeshInstance3D" parent="." unique_id=192466445]
+mesh = SubResource("BoxMesh_mdal7")

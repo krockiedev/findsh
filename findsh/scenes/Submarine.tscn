@@ -2,18 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://cibhnllo05mne" path="res://scenes/player.tscn" id="1_orw0t"]
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_q6hnp"]
-[ext_resource type="Texture2D" uid="uid://drux5qgl8nc15" path="res://assets/tilapia.png" id="3_4r5cb"]
+[ext_resource type="PackedScene" uid="uid://dsaget4xeennn" path="res://scenes/lever.tscn" id="4_t56lg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q6hnp"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4r5cb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_4r5cb"]
-sky_material = SubResource("ProceduralSkyMaterial_q6hnp")
+[sub_resource type="Sky" id="Sky_t56lg"]
+sky_material = SubResource("ProceduralSkyMaterial_4r5cb")
 
-[sub_resource type="Environment" id="Environment_t56lg"]
+[sub_resource type="Environment" id="Environment_xwqdn"]
 background_mode = 2
-sky = SubResource("Sky_4r5cb")
+sky = SubResource("Sky_t56lg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
 render_priority = 0
@@ -32,26 +32,14 @@ albedo_color = Color(0.14901961, 1, 1, 0.22352941)
 material = SubResource("StandardMaterial3D_mdal7")
 size = Vector2(2.2, 1.8)
 
-[node name="Submarine" type="Node3D" unique_id=1938863406]
+[node name="Submarine" type="Node3D" unique_id=1938863406 groups=["submarine"]]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1169168198]
-environment = SubResource("Environment_t56lg")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1457547136]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=346802980]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1941403133]
-size = Vector3(3.0732422, 2.9492188, 5.4521484)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=695906205]
-operation = 2
-size = Vector3(2.5, 2.5, 5)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=737442960]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12072754, 2.241798)
-operation = 2
-size = Vector3(2.2, 1.8, 1.55)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=222917674]
+environment = SubResource("Environment_xwqdn")
 
 [node name="Player" parent="." unique_id=1294710407 instance=ExtResource("1_orw0t")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.21644735, 0.94830334)
@@ -67,8 +55,19 @@ mesh = SubResource("QuadMesh_4r5cb")
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 3.088806)
 mesh = SubResource("QuadMesh_t56lg")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1942313548]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 14.208717)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("3_4r5cb")
+[node name="SubmarineMesh" type="CSGCombiner3D" parent="." unique_id=709795884]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubmarineMesh" unique_id=1941403133]
+size = Vector3(3.0732422, 2.9492188, 5.4521484)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SubmarineMesh/CSGBox3D" unique_id=695906205]
+operation = 2
+size = Vector3(2.5, 2.5, 5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SubmarineMesh/CSGBox3D" unique_id=737442960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12072754, 2.241798)
+operation = 2
+size = Vector3(2.2, 1.8, 1.55)
+
+[node name="Lever" parent="." unique_id=142756749 instance=ExtResource("4_t56lg")]
+transform = Transform3D(-1, 0, -8.742278e-08, -2.262668e-08, 0.9659258, 0.25881904, 8.444392e-08, 0.25881904, -0.9659258, 0, -0.5204003, 2.3385203)

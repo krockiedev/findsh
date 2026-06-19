@@ -5,8 +5,6 @@ extends Camera3D
 @export var smoothness: float = 5.0
 @export var initial_rotation: Vector3
 
-
-
 func _ready():
 	initial_rotation = rotation_degrees
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED

@@ -51,10 +51,5 @@ mesh = SubResource("BoxMesh_ncfea")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.10792589, -0.019075159)
 shape = SubResource("ConcavePolygonShape3D_4kwec")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=812888473]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6009187)
-
-[connection signal="mouse_entered" from="Up_Button" to="." method="_on_up_button_mouse_entered"]
-[connection signal="mouse_exited" from="Up_Button" to="." method="_on_up_button_mouse_exited"]
-[connection signal="mouse_entered" from="Down_Button" to="." method="_on_down_button_mouse_entered"]
-[connection signal="mouse_exited" from="Down_Button" to="." method="_on_down_button_mouse_exited"]
+[connection signal="input_event" from="Up_Button" to="." method="pressed_up"]
+[connection signal="input_event" from="Down_Button" to="." method="pressed_down"]

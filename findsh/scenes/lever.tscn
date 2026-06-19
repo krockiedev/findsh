@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dsaget4xeennn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mdal7"]
+size = Vector3(0.14453125, 0.4819336, 0.16210938)
+
+[node name="Lever" type="Node3D" unique_id=142756749]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2108850656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2590332, 0)
+mesh = SubResource("BoxMesh_mdal7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1136081149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5892241, 0)
+mesh = SubResource("BoxMesh_mdal7")

@@ -1,13 +1,30 @@
 [gd_scene format=3 uid="uid://dvccpk6btlh2c"]
 
-[ext_resource type="Shader" path="res://assets/camera_underwater.gdshader" id="1_7i2eo"]
 [ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
+[ext_resource type="Texture2D" uid="uid://drux5qgl8nc15" path="res://assets/tilapia.png" id="3_mn261"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mdal7"]
 
+[sub_resource type="Shader" id="Shader_fiuhb"]
+code = "shader_type spatial;
+render_mode unshaded, fog_disabled;
+
+uniform sampler2D screen_texture : hint_screen_texture;
+
+void fragment() {
+    // Calculate UV coordinates
+	vec2 uv = SCREEN_UV;
+    // Offset the UV coordinates based on a sine wave
+    uv.x += sin(SCREEN_UV.y * 2.5 + TIME) * 0.008; // Adjust the frequency and amplitude as needed
+    uv.y += sin(SCREEN_UV.x * 2.5 + TIME) * 0.008;
+
+    // Sample the texture using the modified UV coordinates
+    ALBEDO = texture(screen_texture, uv).rgb;
+}"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
 render_priority = 0
-shader = ExtResource("1_7i2eo")
+shader = SubResource("Shader_fiuhb")
 
 [sub_resource type="QuadMesh" id="QuadMesh_mdal7"]
 material = SubResource("ShaderMaterial_7i2eo")
@@ -46,7 +63,7 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0
 mesh = SubResource("QuadMesh_mdal7")
 
 [node name="Tint" type="MeshInstance3D" parent="Camera3D" unique_id=1173517537]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.13575459)
 mesh = SubResource("QuadMesh_7i2eo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646801500]
@@ -55,3 +72,11 @@ environment = SubResource("Environment_mdal7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1016204336]
 transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.7253744, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=437575161]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.045, 0, -2, 0)
+texture = ExtResource("3_mn261")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=2020676736]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.045, 0, -4.0043726, 0)
+texture = ExtResource("3_mn261")

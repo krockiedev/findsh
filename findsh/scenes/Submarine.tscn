@@ -204,6 +204,7 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 2.1398337, 0, 0, 0.37798378, 3.151
 mesh = SubResource("ArrayMesh_p85pa")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Submarine/Frame" unique_id=1624715608]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Submarine/Frame/StaticBody3D" unique_id=1291273587]
 shape = SubResource("ConvexPolygonShape3D_t56lg")

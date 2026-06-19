@@ -39,9 +39,6 @@ fog_depth_end = 40.0
 [node name="Ocean" type="Node3D" unique_id=720181083 groups=["ocean"]]
 script = ExtResource("1_fiuhb")
 
-[node name="LargeFish" parent="." unique_id=1805165206 instance=ExtResource("3_4imn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.449929, 0.16184998, 10.6224165)
-
 [node name="Block3" type="MeshInstance3D" parent="." unique_id=1169043958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.456055, 6.207)
 mesh = SubResource("BoxMesh_mn261")
@@ -61,7 +58,10 @@ light_color = Color(1.540184e-06, 0.855967, 0.8580621, 1)
 light_specular = 6.7
 
 [node name="Medium_Fish" parent="." unique_id=335977634 instance=ExtResource("2_vjho5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3856702, 0.1783092, 11.842656)
 
 [node name="Small_Fish" parent="." unique_id=347440391 instance=ExtResource("3_mn261")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53737915, 0, 9.568615)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07695073, 0.1783092, 11.3633175)
+
+[node name="Large_Fish" parent="." unique_id=453647276 instance=ExtResource("3_4imn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 13.309906)

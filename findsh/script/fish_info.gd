@@ -1,6 +1,7 @@
 extends Control
 
 var current_fish = ""
+var previous_pressed_fish = ""
 var pressed_fish = ""
 
 func _physics_process(delta: float) -> void:

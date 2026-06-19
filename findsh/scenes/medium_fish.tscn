@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d4h7ar3h2a1ke"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fiuhb"]
+size = Vector3(0.85095215, 0.811676, 1.1333008)
+
+[node name="MediumFish" type="MeshInstance3D" unique_id=31327315]
+mesh = SubResource("BoxMesh_fiuhb")

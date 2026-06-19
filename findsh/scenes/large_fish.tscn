@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://clyvaorjeacdb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
+size = Vector3(1.588623, 1.3237, 2.2513428)
+
+[node name="LargeFish" type="MeshInstance3D" unique_id=1805165206]
+mesh = SubResource("BoxMesh_a1ohp")

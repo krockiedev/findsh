@@ -30,5 +30,5 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0
 mesh = SubResource("QuadMesh_qhqgy")
 
 [node name="Tint" type="MeshInstance3D" parent="Camera3D" unique_id=2130234360]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.12304652)
 mesh = SubResource("QuadMesh_dqkch")

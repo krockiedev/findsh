@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cibhnllo05mne"]
+
+[ext_resource type="Script" uid="uid://d2vgan0axavxs" path="res://script/player.gd" id="1_3vyb7"]
+[ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_g2els"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
+render_priority = 0
+shader = ExtResource("2_g2els")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qhqgy"]
+material = SubResource("ShaderMaterial_7i2eo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdal7"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.14901961, 1, 1, 0.22352941)
+
+[sub_resource type="QuadMesh" id="QuadMesh_dqkch"]
+material = SubResource("StandardMaterial3D_mdal7")
+
+[node name="Player" type="Node3D" unique_id=1294710407]
+script = ExtResource("1_3vyb7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1203079014]
+
+[node name="CameraWave" type="MeshInstance3D" parent="Camera3D" unique_id=2114659989]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)
+mesh = SubResource("QuadMesh_qhqgy")
+
+[node name="Tint" type="MeshInstance3D" parent="Camera3D" unique_id=2130234360]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -0.1388166)
+mesh = SubResource("QuadMesh_dqkch")

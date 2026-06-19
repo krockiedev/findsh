@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://tnifqsonfwlr"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_6bs85"]
+size = Vector3(1.5861816, 1.814331, 3.165039)
+
 [node name="Submarine" type="Node3D" unique_id=1938863406]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1768852886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40716553, 0.17236328)
+mesh = SubResource("BoxMesh_6bs85")

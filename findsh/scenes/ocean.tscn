@@ -2,13 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
 [ext_resource type="PackedScene" uid="uid://tnifqsonfwlr" path="res://scenes/Submarine.tscn" id="2_fiuhb"]
+[ext_resource type="PackedScene" uid="uid://d4h7ar3h2a1ke" path="res://scenes/medium_fish.tscn" id="2_vjho5"]
+[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/large_fish.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/small_fish.tscn" id="3_mn261"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_fiuhb"]
-size = Vector3(0.75683594, 0.51257324, 1.1333008)
-
-[sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
-size = Vector3(1.184082, 0.87298584, 1.7419434)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mn261"]
 size = Vector3(1.6311035, 2.0878906, 1)
@@ -31,13 +27,11 @@ reflected_light_source = 2
 [node name="Ocean" type="Node3D" unique_id=720181083]
 script = ExtResource("1_fiuhb")
 
-[node name="MediumFish" type="MeshInstance3D" parent="." unique_id=192466445]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24371338, 6.14054)
-mesh = SubResource("BoxMesh_fiuhb")
+[node name="MediumFish" parent="." unique_id=31327315 instance=ExtResource("2_vjho5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047058105, 0.1091156, 6.14054)
 
-[node name="MediumFish2" type="MeshInstance3D" parent="." unique_id=1357405398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2476585, -0.06350708, 6.4448614)
-mesh = SubResource("BoxMesh_a1ohp")
+[node name="LargeFish" parent="." unique_id=1805165206 instance=ExtResource("3_4imn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.449929, 0.16184998, 6.1901617)
 
 [node name="Block3" type="MeshInstance3D" parent="." unique_id=1169043958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.456055, 6.207)

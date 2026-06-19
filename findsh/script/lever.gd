@@ -12,12 +12,10 @@ func move_submarine(state: int):
 	match state:
 		1:
 			tween_submarine.tween_property(submarine,"global_position:y",submarine.global_position.y + 15,3)
-			await tween_submarine.finished
-			moveable = true
 		2:
 			tween_submarine.tween_property(submarine,"global_position:y",submarine.global_position.y - 15,3)
-			await tween_submarine.finished
-			moveable = true
+	await tween_submarine.finished
+	moveable = true
 	
 func pressed_up(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
@@ -29,4 +27,4 @@ func pressed_down(camera: Node, event: InputEvent, event_position: Vector3, norm
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if moveable:
-				move_submarine(0)
+				move_submarine(2)

@@ -4,17 +4,6 @@
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_q6hnp"]
 [ext_resource type="PackedScene" uid="uid://dsaget4xeennn" path="res://scenes/lever.tscn" id="4_t56lg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4r5cb"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_t56lg"]
-sky_material = SubResource("ProceduralSkyMaterial_4r5cb")
-
-[sub_resource type="Environment" id="Environment_xwqdn"]
-background_mode = 2
-sky = SubResource("Sky_t56lg")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
 render_priority = 0
 shader = ExtResource("2_q6hnp")
@@ -33,16 +22,6 @@ material = SubResource("StandardMaterial3D_mdal7")
 size = Vector2(2.2, 1.8)
 
 [node name="Submarine" type="Node3D" unique_id=1938863406 groups=["submarine"]]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=346802980]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=222917674]
-environment = SubResource("Environment_xwqdn")
-
-[node name="Player" parent="." unique_id=1294710407 instance=ExtResource("1_orw0t")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.21644735, 0.94830334)
 
 [node name="Glass" type="Node3D" parent="." unique_id=232208397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11491355, -0.3129081)
@@ -70,4 +49,7 @@ operation = 2
 size = Vector3(2.2, 1.8, 1.55)
 
 [node name="Lever" parent="." unique_id=142756749 instance=ExtResource("4_t56lg")]
-transform = Transform3D(-1, 0, -8.742278e-08, -2.262668e-08, 0.9659258, 0.25881904, 8.444392e-08, 0.25881904, -0.9659258, 0, -0.9406294, 2.3015838)
+transform = Transform3D(-1, 0, -8.742278e-08, -2.262668e-08, 0.9659258, 0.25881904, 8.444392e-08, 0.25881904, -0.9659258, 0, -0.8998305, 2.2388444)
+
+[node name="Player" parent="." unique_id=1294710407 instance=ExtResource("1_orw0t")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.056785822, 0.8437645)

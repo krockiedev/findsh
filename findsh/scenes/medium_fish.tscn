@@ -11,26 +11,25 @@ grow_amount = 0.03
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6it2"]
 resource_local_to_scene = true
 next_pass = SubResource("StandardMaterial3D_r5tag")
-albedo_color = Color(0, 0.25490198, 1, 1)
+albedo_color = Color(0, 0.18039216, 1, 1)
+grow = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
+[sub_resource type="BoxMesh" id="BoxMesh_ennet"]
 material = SubResource("StandardMaterial3D_r6it2")
-size = Vector3(1.8300781, 1.1096191, 3.0888672)
+size = Vector3(1.0449219, 0.7998047, 1.814209)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mdal7"]
-size = Vector3(1.1738281, 1.1247559, 2.3984375)
+[sub_resource type="BoxShape3D" id="BoxShape3D_0oxhw"]
+size = Vector3(1.1191406, 1, 2.0566406)
 
 [node name="Medium_Fish" type="Area3D" unique_id=335977634]
 script = ExtResource("1_r6it2")
 fish_name = "mid fih"
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1805165206]
-transform = Transform3D(0.5375844, 0, 0, 0, 0.6808206, 0, 0, 0, 0.8126461, 0.0062091937, 0.0029075644, 0.0017309994)
-mesh = SubResource("BoxMesh_a1ohp")
+mesh = SubResource("BoxMesh_ennet")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1765895]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062091937, 0.0029075644, 0.0017309994)
-shape = SubResource("BoxShape3D_mdal7")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1052382723]
+shape = SubResource("BoxShape3D_0oxhw")
 
 [connection signal="input_event" from="." to="." method="_on_fish_pressed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

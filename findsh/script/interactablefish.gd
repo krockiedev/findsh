@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	FishInfo.current_fish = fish_name
+	print("tae")
 	$Mesh.get_active_material(0).next_pass.grow = true
 
 func _on_mouse_exited() -> void:

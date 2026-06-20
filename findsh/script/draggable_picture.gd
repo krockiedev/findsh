@@ -8,38 +8,65 @@ var offset: Vector2
 @onready var original_parent = get_parent()
 
 func _process(_delta: float) -> void:
-	if draggable and FishInfo.logged_fish.find(name) == -1:
+	# name label title
+	var full_name_for_the_label: String
+	for i in range(FishInfo.logged_fish[FishInfo.pressed_fish].size()):
+		if i == 0: 
+			full_name_for_the_label += str(FishInfo.logged_fish[FishInfo.pressed_fish][i])
+		else:
+			full_name_for_the_label += " / " + str(FishInfo.logged_fish[FishInfo.pressed_fish][i])
+		
+	$Label.text = full_name_for_the_label
+	
+	if draggable:
 		if Input.is_action_just_pressed("mouse_1"):
 			offset = get_global_mouse_position() - global_position
 			GlobalDraggingHandler.is_dragging = true
+			$Label.hide()
 		if Input.is_action_pressed("mouse_1"):
 			global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("mouse_1"):
 			GlobalDraggingHandler.is_dragging = false
-			var tween = create_tween()
-			var size_tween = create_tween()
+			
 			if is_inside_holder:
-				#var found_draggable_picture: Node2D = nil
-				#for i in body_ref.get_children():
-					#if i.name.contains("Draggable_Picture"):
-						#found_draggable_picture = i
-				
-				# found a draggable picture in the
-				#if found_draggable_picture != nil:
-					#found_draggable_picture
-					
+				var tween = create_tween()
+				var size_tween = create_tween()
 				size_tween.tween_property(self, "scale", Vector2(0.54,0.54), 0.2).set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "global_position", body_ref.global_position,0.2).set_ease(Tween.EASE_OUT)
+				
+				# check if the body (image frame) already has a picture
+				var found_draggable_picture: Node2D = null
+				for i in body_ref.get_children():
+					if i.name.contains("Draggable_Picture"):
+						found_draggable_picture = i
+				
 				reparent(body_ref)
-				FishInfo.get_node("Confirm").show()
-				FishInfo.get_node("Undo").show()
+				
+				# found a draggable picture in the body
+				if found_draggable_picture != null:
+					found_draggable_picture.reparent(FishInfo)
+					found_draggable_picture._tween_back()
+				
+				#FishInfo.get_node("Confirm").show()
+				#FishInfo.get_node("Undo").show()
 				FishInfo.confirming = true
-				FishInfo.get_node("Log_Book").get_node("Previous_Page").hide()
-				FishInfo.get_node("Log_Book").get_node("Next_Page").hide()
+				#FishInfo.get_node("Log_Book").get_node("Previous_Page").hide()
+				#FishInfo.get_node("Log_Book").get_node("Next_Page").hide()
+				if FishInfo.logged_fish[FishInfo.pressed_fish][0] == "???":
+					FishInfo.logged_fish[FishInfo.pressed_fish][0] = FishInfo.book_pages[int(get_parent().name)][0]
+				else:
+					FishInfo.logged_fish[FishInfo.pressed_fish].append(FishInfo.book_pages[int(get_parent().name)][0])
 			else:
-				size_tween.tween_property(self, "scale", Vector2.ONE, 0.2).set_ease(Tween.EASE_OUT)
-				tween.tween_property(self, "position", Vector2(888.0,189),0.2).set_ease(Tween.EASE_OUT)
+				$Label.show()
+				_tween_back()
 				reparent(original_parent)
+
+
+func _tween_back():
+	var tween = create_tween()
+	var size_tween = create_tween()
+	size_tween.tween_property(self, "scale", Vector2.ONE, 0.2).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", Vector2(888.0,189),0.2).set_ease(Tween.EASE_OUT)
 
 
 func _on_draggable_mouse_entered() -> void:

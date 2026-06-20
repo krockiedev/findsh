@@ -4,7 +4,7 @@
 
 [sub_resource type="Environment" id="Environment_od6h4"]
 background_mode = 1
-background_color = Color(0.9372549, 0.96862745, 0.92156863, 1)
+background_color = Color(0.29803923, 0.96862745, 0.92156863, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fb5q"]
 size = Vector2(316, 318)

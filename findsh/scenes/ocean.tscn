@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
 [ext_resource type="PackedScene" uid="uid://tnifqsonfwlr" path="res://scenes/Submarine.tscn" id="2_fiuhb"]
-[ext_resource type="PackedScene" uid="uid://d4h7ar3h2a1ke" path="res://scenes/fishes/medium_fish.tscn" id="2_vjho5"]
-[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/fishes/large_fish.tscn" id="3_4imn2"]
-[ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/fishes/small_fish.tscn" id="3_mn261"]
 [ext_resource type="Shader" uid="uid://ckg52v0oushrs" path="res://scenes/ocean.gdshader" id="6_vjho5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjho5"]
@@ -49,18 +46,6 @@ script = ExtResource("1_fiuhb")
 environment = SubResource("Environment_ogne1")
 
 [node name="Submarine" parent="." unique_id=1938863406 instance=ExtResource("2_fiuhb")]
-
-[node name="Large_Fish" parent="." unique_id=335977634 instance=ExtResource("3_4imn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6434356, 0, 9.587545)
-
-[node name="Medium_Fish" parent="." unique_id=924532265 instance=ExtResource("2_vjho5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.839272, 0, 9.587545)
-
-[node name="Medium_Fish2" parent="." unique_id=772996996 instance=ExtResource("2_vjho5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.792581, 0, 9.587545)
-
-[node name="Small_Fish" parent="." unique_id=654725690 instance=ExtResource("3_mn261")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.442403, 0, 9.587545)
 
 [node name="OceanShaders" type="Node3D" parent="." unique_id=208957007]
 

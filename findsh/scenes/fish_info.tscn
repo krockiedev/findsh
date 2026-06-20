@@ -69,6 +69,7 @@ theme_override_font_sizes/font_size = 20
 text = "Open Log Book"
 
 [node name="Log_Book" type="TextureRect" parent="." unique_id=542124344]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.30800003
@@ -208,6 +209,9 @@ theme_override_font_sizes/font_size = 30
 text = ">"
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1238168714]
+
+[node name="Timer" type="Timer" parent="." unique_id=912837960]
+one_shot = true
 
 [connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="Open_Book" to="." method="_on_open_book_pressed"]

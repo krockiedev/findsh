@@ -5,6 +5,8 @@ extends Area3D
 @export var image_camera_pos: Vector3
 @export var image_camera_rot: Vector3
 
+var dir_mode = 0
+
 var base_name
 
 func _ready() -> void:
@@ -13,7 +15,14 @@ func _ready() -> void:
 		base_name = base_name.replace(str(i),"")
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if dir_mode == 1:
+		global_rotation_degrees = Vector3(0,-90,0)
+		global_position += Vector3(-0.01*randf_range(1,3)*delta,0,0)
+	if dir_mode == 2:
+		rotation_degrees = Vector3(0,90,0)
+		position += Vector3(0.01*randf_range(1,3)*delta,0,0)
+		
 	if FishInfo.pressed_fish != base_name:
 		$Mesh.get_active_material(0).albedo_color = original_albedo
 	if FishInfo.previous_pressed_fish == base_name:
@@ -22,8 +31,8 @@ func _physics_process(_delta: float) -> void:
 	if FishInfo.pressed_fish != base_name:
 		$Mesh.get_active_material(0).next_pass.grow = false
 	if FishInfo.pressed_fish == base_name:
-		$Mesh.get_active_material(0).next_pass.grow = true
-	if FishInfo.current_fish == base_name:
+		$Mesh.get_active_material(0).next_pass.grow = false
+	if FishInfo.current_fish == base_name and FishInfo.current_fish != FishInfo.pressed_fish:
 		$Mesh.get_active_material(0).next_pass.grow = true
 
 

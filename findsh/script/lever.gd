@@ -49,6 +49,8 @@ func move_submarine(state: int):
 				if ocean_node:
 					ocean_node.transition_ocean_depth(Color("0f2e55"), 25.0, 7.0)
 				tween_submarine.tween_property(submarine, "global_position:y", submarine.global_position.y + 15, 7)
+				await tween_submarine.finished
+				FishInfo.current_depth_level = subposition
 				
 			elif subposition == "mid_ocean":
 				subposition = "coral"
@@ -57,7 +59,8 @@ func move_submarine(state: int):
 				if ocean_node:
 					ocean_node.transition_ocean_depth(Color("1a867aff"), 40.0, 7.0)
 				tween_submarine.tween_property(submarine, "global_position:y", submarine.global_position.y + 15, 7)
-				
+				await tween_submarine.finished
+				FishInfo.current_depth_level = subposition
 		2:
 			if subposition == "abyss":
 				return
@@ -68,7 +71,8 @@ func move_submarine(state: int):
 				if ocean_node:
 					ocean_node.transition_ocean_depth(Color("1a457aff"), 25.0, 10.0)
 				tween_submarine.tween_property(submarine, "global_position:y", submarine.global_position.y - 15, 10)
-				
+				await tween_submarine.finished
+				FishInfo.current_depth_level = subposition
 			elif subposition == "mid_ocean":
 				subposition = "abyss"
 				volume_adjust(midsfx,1)
@@ -91,3 +95,8 @@ func pressed_down(camera: Node, event: InputEvent, event_position: Vector3, norm
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if moveable and subposition != "abyss":
 				move_submarine(2)
+
+
+func change_global_level_depth(tween):
+		await tween.finished
+		FishInfo.current_depth_level = subposition

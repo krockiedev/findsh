@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 FishInfo="*uid://t0oty28sn0sl"
 GlobalDraggingHandler="*uid://d22v12qodw155"
+Ocean="*uid://dvccpk6btlh2c"
 
 [display]
 

@@ -58,7 +58,6 @@ theme_override_font_sizes/font_size = 20
 text = "Open Log Book"
 
 [node name="Log_Book" type="ColorRect" parent="." unique_id=1926798170]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.30800003

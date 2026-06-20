@@ -26,15 +26,6 @@ func _physics_process(_delta: float) -> void:
 	$Log_Book/Fish_Name.text = book_pages[GlobalDraggingHandler.current_book_page][0]
 	$Log_Book/Fish_Description.text = book_pages[GlobalDraggingHandler.current_book_page][1]
 	
-	if previous_pressed_fish != pressed_fish:
-		# pressed fish should now show up on subviewport
-		
-		var draggable_picture = draggable_picture_scene.instantiate()
-		self.add_child(draggable_picture)
-		draggable_picture.position = Vector2(673.576,-1.288)
-		#%Camera3D.look_at()
-		pass
-	
 	for picture_holder_index in range(max_pages + 1):
 		var current_holder = $Log_Book.get_node(str(picture_holder_index))
 		if picture_holder_index != GlobalDraggingHandler.current_book_page:
@@ -63,4 +54,10 @@ func _on_open_book_pressed() -> void:
 		$Log_Book.hide()
 		$Open_Book.text = "Open Log Book"
 
-# 140x140
+
+func create_draggable_picture():
+	var draggable_picture = draggable_picture_scene.instantiate()
+	self.add_child(draggable_picture)
+	draggable_picture.position = Vector2(888,189)
+	
+	pressed_fish = 

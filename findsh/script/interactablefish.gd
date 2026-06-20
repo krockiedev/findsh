@@ -19,14 +19,17 @@ func _physics_process(_delta: float) -> void:
 	if FishInfo.previous_pressed_fish == base_name:
 		if FishInfo.current_fish != FishInfo.previous_pressed_fish:
 			$Mesh.get_active_material(0).next_pass.grow = false
-
+	if FishInfo.confirming and FishInfo.pressed_fish != base_name:
+		$Mesh.get_active_material(0).next_pass.grow = false
 
 func _on_mouse_entered() -> void:
+	if FishInfo.confirming: return
 	FishInfo.current_fish = base_name
 	$Mesh.get_active_material(0).next_pass.grow = true
 
 
 func _on_mouse_exited() -> void:
+	if FishInfo.confirming: return
 	if FishInfo.pressed_fish != base_name and FishInfo.pressed_fish != "":
 		FishInfo.current_fish = FishInfo.pressed_fish
 		$Mesh.get_active_material(0).next_pass.grow = false
@@ -37,6 +40,7 @@ func _on_mouse_exited() -> void:
 
 func _on_fish_pressed(_camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
+		if FishInfo.confirming: return
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			FishInfo.previous_pressed_fish = FishInfo.pressed_fish
 			FishInfo.pressed_fish = base_name

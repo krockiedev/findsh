@@ -6,7 +6,7 @@ var current_fish = ""
 var previous_pressed_fish = ""
 var pressed_fish = ""
 
-var discovering: bool
+var confirming: bool
 
 var book_pages = {
 	0: ["Large Fish", "This fih is big and it is found in mid level. It is also pruple."]
@@ -59,9 +59,13 @@ func _on_open_book_pressed() -> void:
 
 
 func create_draggable_picture():
+	for i in self.get_children():
+		if i.name.contains("Draggable_Picture"): i.queue_free()
+		
 	var draggable_picture = draggable_picture_scene.instantiate()
 	self.add_child(draggable_picture)
 	draggable_picture.position = Vector2(888,189)
+	draggable_picture.name = "Draggable_Picture"
 	var fish_in_3d = $Fishes.get_node(str(pressed_fish.replace(" ", "_")))
 	
 	draggable_picture.get_node("%Camera3D").position = fish_in_3d.image_camera_pos
@@ -69,9 +73,15 @@ func create_draggable_picture():
 
 
 func _on_confirm_pressed() -> void:
+	confirming = false
 	logged_fish.append(pressed_fish)
 	$Confirm.hide()
 	$Undo.hide()
 	$Log_Book.get_node(str(GlobalDraggingHandler.current_book_page)).remove_from_group("dropable")
 	$Log_Book/Previous_Page.show()
 	$Log_Book/Next_Page.show()
+	
+# yes, do the drag yo, reparent the one in the frame to the info again, and tween it back
+# and then, confirm for the new one, but im not sure
+# how the undo will be.
+# think on it later

@@ -2,7 +2,7 @@ extends Node2D
 
 var draggable = false
 var is_inside_holder
-var body_ref
+var body_ref: StaticBody2D
 var offset: Vector2
 
 @onready var original_parent = get_parent()
@@ -19,11 +19,21 @@ func _process(_delta: float) -> void:
 			var tween = create_tween()
 			var size_tween = create_tween()
 			if is_inside_holder:
+				var found_draggable_picture: Node2D = nil
+				for i in body_ref.get_children():
+					if i.name.contains("Draggable_Picture"):
+						found_draggable_picture = i
+				
+				# found a draggable picture in the
+				#if found_draggable_picture != nil:
+					#found_draggable_picture
+					
 				size_tween.tween_property(self, "scale", Vector2(0.54,0.54), 0.2).set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "global_position", body_ref.global_position,0.2).set_ease(Tween.EASE_OUT)
 				reparent(body_ref)
 				FishInfo.get_node("Confirm").show()
 				FishInfo.get_node("Undo").show()
+				FishInfo.confirming = true
 				FishInfo.get_node("Log_Book").get_node("Previous_Page").hide()
 				FishInfo.get_node("Log_Book").get_node("Next_Page").hide()
 			else:

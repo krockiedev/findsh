@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if FishInfo.pressed_fish != name:
 		$Mesh.get_active_material(0).albedo_color = original_albedo
 	if FishInfo.previous_pressed_fish == name:
@@ -25,9 +25,11 @@ func _on_mouse_exited() -> void:
 		$Mesh.get_active_material(0).next_pass.grow = false
 
 
-func _on_fish_pressed(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_fish_pressed(_camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			FishInfo.previous_pressed_fish = FishInfo.pressed_fish
 			FishInfo.pressed_fish = name
 			$Mesh.get_active_material(0).albedo_color = Color("00ffff7e")
+			
+			FishInfo.create_draggable_picture()

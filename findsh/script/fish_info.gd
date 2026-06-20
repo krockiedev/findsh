@@ -12,7 +12,7 @@ var book_pages = {
 
 var logged_fish = []
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if current_fish != "": 
 		var current_fish_name_text = current_fish.replace("_"," ")
 		if logged_fish.find(current_fish) == -1:
@@ -21,29 +21,38 @@ func _physics_process(delta: float) -> void:
 		$Label.visible = true 
 	else: $Label.visible = false
 	
-	$Log_Book/Fish_Name.text = book_pages[page][0]
-	$Log_Book/Fish_Description.text = book_pages[page][1]
+	$Log_Book/Fish_Name.text = book_pages[GlobalDraggingHandler.current_book_page][0]
+	$Log_Book/Fish_Description.text = book_pages[GlobalDraggingHandler.current_book_page][1]
 	
 	if previous_pressed_fish != pressed_fish:
 		# pressed fish should now show up on subviewport
 		
-		$SubViewportContainer.show()
-		%Camera3D.look_at()
+		#$SubViewportContainer.show()
+		#%Camera3D.look_at()
 		pass
+	
+	for picture_holder_index in range(max_pages + 1):
+		var current_holder = $Log_Book.get_node(str(picture_holder_index))
+		if picture_holder_index != GlobalDraggingHandler.current_book_page:
+			current_holder.hide()
+			current_holder.remove_from_group("dropable")
+		else:
+			current_holder.show()
+			current_holder.add_to_group("dropable")
+		
+var max_pages = 2
 
-var page = 0
 func _on_previous_page_pressed() -> void:
-	if page == 0: page = 2
-	else: page -= 1
+	if GlobalDraggingHandler.current_book_page == 0: GlobalDraggingHandler.current_book_page = max_pages
+	else: GlobalDraggingHandler.current_book_page -= 1
 
 func _on_next_page_pressed() -> void:
-	if page == 2: page = 0
-	else: page += 1
+	if GlobalDraggingHandler.current_book_page == max_pages: GlobalDraggingHandler.current_book_page = 0
+	else: GlobalDraggingHandler.current_book_page += 1
 
 
 func _on_open_book_pressed() -> void:
 	if $Open_Book.text == "Open Log Book":
-		print("tae")
 		$Log_Book.show()
 		$Open_Book.text = "Close Log Book"
 	else:

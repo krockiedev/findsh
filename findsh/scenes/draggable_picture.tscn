@@ -1,13 +1,31 @@
 [gd_scene format=3 uid="uid://m85ivmm8j4bd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fb5q"]
-size = Vector2(316, 318)
+[ext_resource type="Script" uid="uid://dgpnpqt4xhne4" path="res://script/draggable_picture.gd" id="1_od6h4"]
 
 [sub_resource type="Environment" id="Environment_od6h4"]
 background_mode = 1
 background_color = Color(0.9372549, 0.96862745, 0.92156863, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fb5q"]
+size = Vector2(316, 318)
+
 [node name="Draggable_Picture" type="Node2D" unique_id=239279840]
+z_index = 2
+script = ExtResource("1_od6h4")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=132093289]
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=995538666]
+handle_input_locally = false
+size = Vector2i(300, 300)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=825732503]
+unique_name_in_owner = true
+transform = Transform3D(0.6883545, -0.20601746, 0.69550335, 0, 0.95881975, 0.28401533, -0.72537446, -0.19550322, 0.6600079, 1.5079557, 0.37206578, 1.5984035)
+environment = SubResource("Environment_od6h4")
 
 [node name="Draggable" type="Area2D" parent="." unique_id=1745620601]
 
@@ -15,16 +33,7 @@ background_color = Color(0.9372549, 0.96862745, 0.92156863, 1)
 position = Vector2(148, 149)
 shape = SubResource("RectangleShape2D_2fb5q")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Draggable" unique_id=132093289]
-offset_right = 300.0
-offset_bottom = 300.0
-
-[node name="SubViewport" type="SubViewport" parent="Draggable/SubViewportContainer" unique_id=995538666]
-handle_input_locally = false
-size = Vector2i(300, 300)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="Draggable/SubViewportContainer/SubViewport" unique_id=825732503]
-unique_name_in_owner = true
-transform = Transform3D(0.6883545, -0.20601746, 0.69550335, 0, 0.95881975, 0.28401533, -0.72537446, -0.19550322, 0.6600079, 1.5079557, 0.37206578, 1.5984035)
-environment = SubResource("Environment_od6h4")
+[connection signal="body_entered" from="Draggable" to="." method="_on_draggable_body_entered"]
+[connection signal="body_exited" from="Draggable" to="." method="_on_draggable_body_exited"]
+[connection signal="mouse_entered" from="Draggable" to="." method="_on_draggable_mouse_entered"]
+[connection signal="mouse_exited" from="Draggable" to="." method="_on_draggable_mouse_exited"]

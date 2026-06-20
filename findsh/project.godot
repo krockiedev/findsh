@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 FishInfo="*uid://t0oty28sn0sl"
+GlobalDraggingHandler="*uid://d22v12qodw155"
 
 [display]
 

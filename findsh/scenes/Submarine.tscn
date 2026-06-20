@@ -2,7 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cibhnllo05mne" path="res://scenes/player.tscn" id="1_orw0t"]
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_q6hnp"]
+[ext_resource type="AudioStream" uid="uid://deim8jqeg1orl" path="res://assets/SFX/CoralReefAmbience.mp3" id="4_2l1b1"]
 [ext_resource type="PackedScene" uid="uid://dsaget4xeennn" path="res://scenes/lever.tscn" id="4_t56lg"]
+[ext_resource type="AudioStream" uid="uid://dfcyr8obv0am6" path="res://assets/SFX/MidLevelAmbience.mp3" id="5_f3ewx"]
+[ext_resource type="AudioStream" uid="uid://cvrklfsmi1ofr" path="res://assets/SFX/AbyssLevelAmbience.mp3" id="6_iyq2c"]
+[ext_resource type="AudioStream" uid="uid://cakxctbaye4kb" path="res://assets/SFX/SubmarineMoving.mp3" id="7_iyq2c"]
+[ext_resource type="AudioStream" uid="uid://c1d75p3l7srix" path="res://assets/SFX/SubmarineHittingBottomOfOcean.mp3" id="8_pnx7u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
 render_priority = 0
@@ -217,3 +222,22 @@ light_energy = 0.05
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_attenuation = 0.252
+
+[node name="Coral" type="AudioStreamPlayer" parent="." unique_id=651684544]
+stream = ExtResource("4_2l1b1")
+
+[node name="Mid" type="AudioStreamPlayer" parent="." unique_id=1355092510]
+stream = ExtResource("5_f3ewx")
+volume_db = -40.0
+
+[node name="Abyss" type="AudioStreamPlayer" parent="." unique_id=670627292]
+stream = ExtResource("6_iyq2c")
+volume_db = -40.0
+
+[node name="Moving" type="AudioStreamPlayer" parent="." unique_id=1336548995]
+stream = ExtResource("7_iyq2c")
+volume_db = -10.0
+
+[node name="BottomHit" type="AudioStreamPlayer" parent="." unique_id=806790055]
+stream = ExtResource("8_pnx7u")
+volume_db = 20.0

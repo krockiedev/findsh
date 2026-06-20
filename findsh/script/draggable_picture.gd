@@ -45,12 +45,12 @@ func _on_draggable_mouse_exited() -> void:
 func _on_draggable_body_entered(body: Node2D) -> void:
 	if body.is_in_group("dropable"):
 		is_inside_holder = true
-		body.modulate = Color(Color.GRAY)
+		body.get_node("ColorRect").modulate = Color(Color.GRAY)
 		body_ref = body
 
 
 func _on_draggable_body_exited(body: Node2D) -> void:
 	if body.is_in_group("dropable"):
 		is_inside_holder = false
-		body.modulate = Color(Color.WHITE)
+		body.get_node("ColorRect").modulate = Color(Color.WHITE)
 		body_ref = body

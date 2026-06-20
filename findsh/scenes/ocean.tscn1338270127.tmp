@@ -52,5 +52,3 @@ environment = SubResource("Environment_ogne1")
 [node name="LightRays" type="MeshInstance3D" parent="OceanShaders" unique_id=914657913]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25.286278, 78.63696)
 mesh = SubResource("PlaneMesh_6bs85")
-
-[node name="Fishes" type="Node3D" parent="." unique_id=1171434936 groups=["Fishes"]]

@@ -38,7 +38,7 @@ func _on_fish_spawn_timer_timeout() -> void:
 	var fish: Area3D = random_key[1].instantiate()
 	var random_dir = randi_range(1,2)
 	fish.dir_mode = random_dir
-	Ocean.add_child(fish)
+	get_tree().get_first_node_in_group("Fishes").add_child(fish)
 	fish.global_position = get_node("SpawnSide" + str(random_dir)).get_children().pick_random().global_position
 	fish.name = random_key[0]
 	

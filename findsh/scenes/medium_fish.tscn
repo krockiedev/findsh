@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bwvlhur3pwbve"]
+
+[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_r6it2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5tag"]
+resource_local_to_scene = true
+cull_mode = 1
+shading_mode = 0
+grow_amount = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6it2"]
+resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_r5tag")
+albedo_color = Color(0, 0.18039216, 1, 1)
+grow = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ennet"]
+material = SubResource("StandardMaterial3D_r6it2")
+size = Vector3(1.0449219, 0.7998047, 1.814209)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0oxhw"]
+size = Vector3(1.1191406, 1, 2.0566406)
+
+[node name="Medium_Fish" type="Area3D" unique_id=335977634]
+script = ExtResource("1_r6it2")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1805165206]
+mesh = SubResource("BoxMesh_ennet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1052382723]
+shape = SubResource("BoxShape3D_0oxhw")
+
+[connection signal="input_event" from="." to="." method="_on_fish_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

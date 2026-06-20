@@ -31,6 +31,9 @@ mesh = SubResource("BoxMesh_ekacj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1927111068]
 shape = SubResource("BoxShape3D_mdal7")
 
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1514457293]
+aabb = AABB(-0.22255723, -0.2566756, -0.5204026, 0.44511446, 0.5133512, 1.0408052)
+
 [connection signal="input_event" from="." to="." method="_on_fish_pressed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

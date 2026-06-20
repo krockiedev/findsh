@@ -5,12 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d4h7ar3h2a1ke" path="res://scenes/fishes/medium_fish.tscn" id="2_vjho5"]
 [ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/fishes/large_fish.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/fishes/small_fish.tscn" id="3_mn261"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_mn261"]
-size = Vector3(1.6311035, 2.0878906, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_mdal7"]
-size = Vector3(2.4980469, 1, 1)
+[ext_resource type="Shader" uid="uid://ckg52v0oushrs" path="res://scenes/ocean.gdshader" id="6_vjho5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjho5"]
 sky_top_color = Color(0.20392157, 0.68235296, 0.8352941, 1)
@@ -36,26 +31,24 @@ fog_density = 1.0
 fog_depth_begin = 2.0
 fog_depth_end = 40.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5y37k"]
+render_priority = -1
+shader = ExtResource("6_vjho5")
+shader_parameter/ray_color = Color(0.4509804, 0.81960785, 0.6862745, 0.53333336)
+shader_parameter/speed = 0.738000035055
+shader_parameter/ray_density = 19.3970008738575
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6bs85"]
+material = SubResource("ShaderMaterial_5y37k")
+size = Vector2(250, 100)
+
 [node name="Ocean" type="Node3D" unique_id=720181083 groups=["ocean"]]
 script = ExtResource("1_fiuhb")
-
-[node name="Block3" type="MeshInstance3D" parent="." unique_id=1169043958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.456055, 6.207)
-mesh = SubResource("BoxMesh_mn261")
-
-[node name="Block2" type="MeshInstance3D" parent="." unique_id=1532130489]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.898046, 6.2071905)
-mesh = SubResource("BoxMesh_mdal7")
 
 [node name="OceanEnvironment" type="WorldEnvironment" parent="." unique_id=646801500]
 environment = SubResource("Environment_ogne1")
 
 [node name="Submarine" parent="." unique_id=1938863406 instance=ExtResource("2_fiuhb")]
-
-[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=1016204336]
-transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.7253744, 0, 0, 0)
-light_color = Color(1.540184e-06, 0.855967, 0.8580621, 1)
-light_specular = 6.7
 
 [node name="Large_Fish" parent="." unique_id=335977634 instance=ExtResource("3_4imn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6434356, 0, 9.587545)
@@ -68,3 +61,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.792581, 0, 9.587545)
 
 [node name="Small_Fish" parent="." unique_id=654725690 instance=ExtResource("3_mn261")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.442403, 0, 9.587545)
+
+[node name="OceanShaders" type="Node3D" parent="." unique_id=208957007]
+
+[node name="LightRays" type="MeshInstance3D" parent="OceanShaders" unique_id=914657913]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25.286278, 78.63696)
+mesh = SubResource("PlaneMesh_6bs85")

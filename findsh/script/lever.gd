@@ -21,7 +21,7 @@ func volume_adjust(SFX:AudioStreamPlayer, state: int):
 			SFX.playing = true
 			tween_volume.tween_property(SFX, "volume_db", 0, 5)\
 			.set_trans(Tween.TRANS_EXPO)
-	await tween_volume.finished
+	await tween_volume.finished3
 	if state == 1:
 		SFX.playing = false
 	if SFX == abysssfx and state == 2:

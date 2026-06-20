@@ -19,10 +19,10 @@ func _process(_delta: float) -> void:
 			var tween = create_tween()
 			var size_tween = create_tween()
 			if is_inside_holder:
-				var found_draggable_picture: Node2D = nil
-				for i in body_ref.get_children():
-					if i.name.contains("Draggable_Picture"):
-						found_draggable_picture = i
+				#var found_draggable_picture: Node2D = nil
+				#for i in body_ref.get_children():
+					#if i.name.contains("Draggable_Picture"):
+						#found_draggable_picture = i
 				
 				# found a draggable picture in the
 				#if found_draggable_picture != nil:

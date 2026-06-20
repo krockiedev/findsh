@@ -17,16 +17,25 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_00l1l")
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=723072452]
+transform = Transform3D(0.85568064, -0.26171863, 0.44644594, 0, 0.86269045, 0.50573236, -0.5175042, -0.4327454, 0.7381875, 32.994144, 0.7166023, 1.8876984)
+
 [node name="Fishes" type="Node3D" parent="." unique_id=654929814]
 
 [node name="Medium_Fish" parent="Fishes" unique_id=335977634 instance=ExtResource("3_33570")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6624804, 0, 0)
+image_camera_pos = Vector3(8.393, 0.494, 1.542)
+image_camera_rot = Vector3(-29, 29.5, 0)
 
 [node name="Small_Fish" parent="Fishes" unique_id=1754167260 instance=ExtResource("3_bsbeo")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4831123, 0, 0)
+image_camera_pos = Vector3(-7.212, 0.149, 0.691)
+image_camera_rot = Vector3(-23, 30.5, 0)
 
 [node name="Large_Fish" parent="Fishes" unique_id=2145488070 instance=ExtResource("2_iod5n")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.915056, 0, 0)
+image_camera_pos = Vector3(32.994, 0.717, 1.888)
+image_camera_rot = Vector3(-30.4, 31.2, 0)
 
 [node name="Label" type="Label" parent="." unique_id=101630820]
 layout_mode = 1
@@ -73,6 +82,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="0" parent="Log_Book" unique_id=1343942879 instance=ExtResource("6_vtiuw")]
+visible = false
 position = Vector2(74.57599, 43.712006)
 
 [node name="1" parent="Log_Book" unique_id=772869433 instance=ExtResource("6_vtiuw")]

@@ -34,7 +34,8 @@ func _physics_process(_delta: float) -> void:
 		else:
 			current_holder.show()
 			current_holder.add_to_group("dropable")
-		
+
+
 var max_pages = 2
 
 func _on_previous_page_pressed() -> void:
@@ -60,4 +61,7 @@ func create_draggable_picture():
 	self.add_child(draggable_picture)
 	draggable_picture.position = Vector2(888,189)
 	
-	pressed_fish = 
+	var fish_in_3d = $Fishes.get_node(str(pressed_fish))
+	
+	draggable_picture.get_node("%Camera3D").position = fish_in_3d.image_camera_pos
+	draggable_picture.get_node("%Camera3D").rotation_degrees = fish_in_3d.image_camera_rot

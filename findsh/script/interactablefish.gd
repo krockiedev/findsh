@@ -2,6 +2,9 @@ extends Area3D
 
 @onready var original_albedo = $Mesh.get_active_material(0).albedo_color
 
+@export var image_camera_pos: Vector3
+@export var image_camera_rot: Vector3
+
 func _ready() -> void:
 	pass
 

@@ -69,3 +69,8 @@ func _on_fish_pressed(_camera: Node, event: InputEvent, event_position: Vector3,
 			$Mesh.get_active_material(0).albedo_color = Color("00ffff7e")
 			
 			FishInfo.create_draggable_picture()
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	print("DIED")
+	queue_free()

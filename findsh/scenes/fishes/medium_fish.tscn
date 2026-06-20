@@ -29,6 +29,8 @@ mesh = SubResource("BoxMesh_jhiki")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1052382723]
 shape = SubResource("BoxShape3D_0oxhw")
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1030177092]
+
 [connection signal="input_event" from="." to="." method="_on_fish_pressed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

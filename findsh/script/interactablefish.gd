@@ -81,14 +81,15 @@ func _on_fish_pressed(_camera: Node, event: InputEvent, event_position: Vector3,
 	if event is InputEventMouseButton:
 		#if FishInfo.confirming: return
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			
 			FishInfo.previous_pressed_fish = FishInfo.pressed_fish
 			FishInfo.pressed_fish = base_name
 			FishInfo.get_node("Camera_Flash").color = Color("ffffff")
 			var camera_flash_tween = create_tween()
 			camera_flash_tween.tween_property(FishInfo.get_node("Camera_Flash"),"color",Color("ffffff00"),0.7)
-			
-			#$Mesh.get_active_material(0).albedo_color = Color("00ffff7e")
 			FishInfo.fish_running = true
+			await get_tree().create_timer(3.0).timeout
+			
 			FishInfo.create_draggable_picture()
 			
 			await get_tree().create_timer(5.0).timeout

@@ -868,7 +868,7 @@ transform = Transform3D(0.12376544, 0, 0.044888504, 0, 0.1316543, 0, -0.04488850
 mesh = SubResource("ArrayMesh_gxrec")
 
 [node name="Polaroid" type="MeshInstance3D" parent="Submarine/Printer" unique_id=176870911]
-transform = Transform3D(0.061461687, -2.4539284e-05, 0.02206063, -0.00088253233, 0.0028914898, 0.0040925816, -0.022049913, -0.00018413039, 0.061327767, 0.7094231, -0.43251356, 2.2949915)
+transform = Transform3D(0.061461687, -2.4539284e-05, 0.02206063, -0.0008825325, 0.0028914898, 0.004092582, -0.022049913, -0.00018413042, 0.061327767, 0.73148155, -0.43251356, 2.3980834)
 mesh = SubResource("ArrayMesh_svj2r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Submarine/Printer" unique_id=96101933 groups=["printer"]]

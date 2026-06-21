@@ -16,14 +16,14 @@ var submarine_moving = false
 var confirming: bool
 
 var book_pages = {
-	0: ["Large Fish", "In the water"]
-	,1: ["Medium Fish", "In the ocean"]
-	,2: ["Small Fish", "I love you"]
+	0: ["Whale Shark", "Both deep and shallow coastal waters", "A streamlined body and a depressed, broad, and flattened head", "Large"]
+	,1: ["Sun Fish", "Coral Reefs", "Have a large body that is compressed and ovular", "Up to 3 meters", "Medium"]
+	,2: ["Milk Fish", "I love you"]
 }
 
 var logged_fish = {
-	"Large Fish": ["???"]
-	,"Medium Fish": ["???"]
+	"Whale_Shark": ["???"]
+	,"Sunfish": ["???"]
 	, "Small Fish": ["???"]
 	}
 
@@ -48,7 +48,7 @@ func _physics_process(_delta: float) -> void:
 			current_holder.add_to_group("dropable")
 
 
-var max_pages = 2
+var max_pages = 1
 func _on_previous_page_pressed() -> void:
 	if GlobalDraggingHandler.current_book_page == 0: GlobalDraggingHandler.current_book_page = max_pages
 	else: GlobalDraggingHandler.current_book_page -= 1
@@ -60,6 +60,7 @@ func _on_next_page_pressed() -> void:
 
 
 func _on_open_book_pressed() -> void:
+	print("open log book")
 	if $Open_Book.text == "Open Log Book":
 		$Log_Book.show()
 		$Open_Book.text = "Close Log Book"

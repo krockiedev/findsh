@@ -43,9 +43,9 @@ func _physics_process(delta: float) -> void:
 		global_rotation_degrees = Vector3(0,90+running_rotation,0)
 		global_position += Vector3(x_escape*randf_range(1,4)*delta,y_escape*randf_range(1,4)*delta,x_escape*randf_range(1,4)*delta)
 		
-	if global_position.x > 18 and not model:
-		print("destroyed: " + name)
-		queue_free()
+	#if global_position.x > 18 and not model:
+		#print("destroyed: " + name)
+		#queue_free()
 	
 	#if FishInfo.pressed_fish != base_name:
 		#

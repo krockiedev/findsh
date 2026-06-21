@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bcjr5okwa3k5q" path="res://script/fish_info.gd" id="1_00l1l"]
 [ext_resource type="Texture2D" uid="uid://dtw6lok5qkmjw" path="res://assets/dashed_image_frame.png" id="2_erwc4"]
-[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/fishes/large_fish.tscn" id="2_iod5n"]
-[ext_resource type="PackedScene" uid="uid://d4h7ar3h2a1ke" path="res://scenes/fishes/medium_fish.tscn" id="3_33570"]
-[ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/fishes/small_fish.tscn" id="3_bsbeo"]
+[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/fishes/whale_shark.tscn" id="2_vtiuw"]
+[ext_resource type="PackedScene" uid="uid://b0cls3p6lg6q2" path="res://scenes/fishes/sunfish.tscn" id="3_33570"]
 [ext_resource type="Texture2D" uid="uid://dsbxy6f7a7jx8" path="res://assets/NotebookSprite.jpg" id="5_33570"]
 [ext_resource type="PackedScene" uid="uid://dco3okv5b5me7" path="res://scenes/picture_holder.tscn" id="6_vtiuw"]
 
@@ -40,22 +39,15 @@ text = "Undo"
 
 [node name="Fishes" type="Node3D" parent="." unique_id=654929814]
 
-[node name="Small_Fish" parent="Fishes" unique_id=1754167260 instance=ExtResource("3_bsbeo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4831123, 0, 0)
-image_camera_pos = Vector3(-7.212, 0.149, 0.691)
-image_camera_rot = Vector3(-23, 30.5, 0)
+[node name="Whale_Shark" parent="Fishes" unique_id=335977634 instance=ExtResource("2_vtiuw")]
+image_camera_pos = Vector3(1.002, 0.473, 1.074)
+image_camera_rot = Vector3(-37.5, 58.5, 0)
 model = true
 
-[node name="Medium_Fish" parent="Fishes" unique_id=335977634 instance=ExtResource("3_33570")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.641291, -0.030323386, 0)
-image_camera_pos = Vector3(7.188, 0.541, 1.503)
-image_camera_rot = Vector3(-31.5, -25, 0)
-model = true
-
-[node name="Large_Fish" parent="Fishes" unique_id=1258915648 instance=ExtResource("2_iod5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.332302, -0.20844293, 0.106678724)
-image_camera_pos = Vector3(32.994, 0.717, 1.888)
-image_camera_rot = Vector3(-30.4, 31.2, 0)
+[node name="Sunfish" parent="Fishes" unique_id=1147769377 instance=ExtResource("3_33570")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.48967, 0, 0)
+image_camera_pos = Vector3(18.026, 0.142, 0.934)
+image_camera_rot = Vector3(-5.5, -31.5, 0)
 model = true
 
 [node name="Open_Book" type="Button" parent="." unique_id=1627911381]
@@ -72,7 +64,6 @@ theme_override_font_sizes/font_size = 20
 text = "Open Log Book"
 
 [node name="Log_Book" type="TextureRect" parent="." unique_id=542124344]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.30800003

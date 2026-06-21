@@ -22,17 +22,17 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 
 
 var coral_fishes = {
-	"Small_Fish" = ["Small_Fish",preload("uid://b31mgblwlr0nj")]
-	,#"Large_Fish" = ["Large_Fish",preload("uid://clyvaorjeacdb")]
+	"Whale_Shark" = ["Whale_Shark",preload("uid://clyvaorjeacdb")]
+	,"Sunfish" = ["Sunfish",preload("uid://b0cls3p6lg6q2")]
 }
 
 var mid_ocean_fishes = {
 	"Medium_Fish" = ["Medium_Fish",preload("uid://d4h7ar3h2a1ke")]
 }
 
-#var abyss_fishes = {
-	#"Large_Fish" = ["Large_Fish",preload("uid://clyvaorjeacdb")]
-#}
+var abyss_fishes = {
+	"Large_Fish" = ["Large_Fish",preload("uid://clyvaorjeacdb")]
+}
 
 
 func _on_fish_spawn_timer_timeout() -> void:
@@ -41,7 +41,7 @@ func _on_fish_spawn_timer_timeout() -> void:
 	var fish_dict = {}
 	if FishInfo.current_depth_level == "coral": fish_dict = coral_fishes
 	if FishInfo.current_depth_level == "mid_ocean": fish_dict = mid_ocean_fishes
-	#if FishInfo.current_depth_level == "abyss": fish_dict = abyss_fishes
+	if FishInfo.current_depth_level == "abyss": fish_dict = abyss_fishes
 	
 	var random_key = fish_dict[fish_dict.keys().pick_random()]
 	var fish: Area3D = random_key[1].instantiate()

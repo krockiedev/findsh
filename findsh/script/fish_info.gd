@@ -28,11 +28,11 @@ var logged_fish = {
 	}
 
 func _physics_process(_delta: float) -> void:
-	if get_tree().get_first_node_in_group("ocean").get_node("Fishes").get_children().size() == 0:
+	if get_tree().get_first_node_in_group("Ocean").get_node("Fishes").get_children().size() == 0:
 		if not submarine_moving:
 			feeding_debouce = false
 			fish_running = false
-	if get_tree().get_first_node_in_group("ocean").get_node("Fishes").get_children().size() > 0:
+	if get_tree().get_first_node_in_group("Ocean").get_node("Fishes").get_children().size() > 0:
 		feeding_debouce = true
 	
 	$Log_Book/Fish_Name.text = book_pages[GlobalDraggingHandler.current_book_page][0]

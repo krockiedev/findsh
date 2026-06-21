@@ -7,6 +7,9 @@ extends Node3D
 @onready var abysssfx: AudioStreamPlayer = $"../Abyss"
 @onready var moving: AudioStreamPlayer = $"../Moving"
 @onready var bottom_hit: AudioStreamPlayer = $"../BottomHit"
+@onready var button_anims: AnimationPlayer = $Buttons/AnimationPlayer
+@onready var downsfx: AudioStreamPlayer3D = $ButtonDownSFX
+@onready var upsfx: AudioStreamPlayer3D = $ButtonUpSFX
 
 var moveable = true
 var subposition = "coral"
@@ -86,9 +89,13 @@ func pressed_up(camera: Node, event: InputEvent, event_position: Vector3, normal
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if moveable and subposition != "coral":
 				move_submarine(1)
+				button_anims.play("UpButtonAction")
+				upsfx.play()
 	
 func pressed_down(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if moveable and subposition != "abyss":
 				move_submarine(2)
+				button_anims.play("DownButtonAction")
+				downsfx.play()

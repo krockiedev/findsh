@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cibhnllo05mne" path="res://scenes/player.tscn" id="1_orw0t"]
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_q6hnp"]
 [ext_resource type="AudioStream" uid="uid://deim8jqeg1orl" path="res://assets/SFX/CoralReefAmbience.mp3" id="4_2l1b1"]
+[ext_resource type="Texture2D" uid="uid://dsbxy6f7a7jx8" path="res://assets/NotebookSprite.jpg" id="4_2p3xb"]
 [ext_resource type="Texture2D" uid="uid://dlrfjb2r4hexg" path="res://assets/Texture/Dignity.PNG" id="4_utr7s"]
 [ext_resource type="AudioStream" uid="uid://dfcyr8obv0am6" path="res://assets/SFX/MidLevelAmbience.mp3" id="5_f3ewx"]
 [ext_resource type="AudioStream" uid="uid://cvrklfsmi1ofr" path="res://assets/SFX/AbyssLevelAmbience.mp3" id="6_iyq2c"]
@@ -661,6 +662,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fcsp4")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqfmn"]
+albedo_texture = ExtResource("4_2p3xb")
+uv1_scale = Vector3(3.005, 3.005, 3.005)
+uv1_offset = Vector3(0, 0.015, 0)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p3xb"]
 albedo_texture = ExtResource("4_utr7s")
 uv1_scale = Vector3(2.645, 2.645, 2.645)
@@ -716,7 +722,7 @@ transform = Transform3D(0.10788008, 0, 0, 0, 0.10788008, 0, 0, 0, 0.10788008, 1.
 mesh = SubResource("ArrayMesh_ytqeg")
 
 [node name="Cup" type="MeshInstance3D" parent="Submarine" unique_id=170418703]
-transform = Transform3D(0.031834953, 0, -0.03053586, 0, 0.044112388, 0, 0.03053586, 0, 0.031834953, -0.52071995, -0.51326007, 2.0153303)
+transform = Transform3D(0.047260903, 0, -0.04596181, 0, 0.06415815, 0, 0.04533232, 0, 0.047917172, -0.52071995, -0.49466842, 2.0153303)
 mesh = SubResource("ArrayMesh_tosfx")
 
 [node name="Corkboard" type="MeshInstance3D" parent="Submarine" unique_id=963728656]
@@ -747,8 +753,9 @@ transform = Transform3D(0.0016553352, 0.0054169972, 0, -0.004623728, 0.001939332
 mesh = SubResource("ArrayMesh_gs51l")
 
 [node name="Paper" type="MeshInstance3D" parent="Submarine" unique_id=1449686811]
-transform = Transform3D(0.11821695, 0, -0.035448298, 0, 0.01170336, 0, 0.024341209, 0, 0.17216028, -0.7357948, -0.52807164, 1.8387966)
+transform = Transform3D(0.04093893, 0, 0.11080587, 0, 0.011703359, 0, -0.17041624, 0, 0.026618795, -0.2516613, -0.52807164, 2.0788212)
 mesh = SubResource("ArrayMesh_bfx3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_hqfmn")
 
 [node name="Family Photo" type="MeshInstance3D" parent="Submarine" unique_id=1663199398]
 transform = Transform3D(0.0031125145, 0.01179357, -0.001037242, -0.087025695, 0.00042180243, 0.029001217, 0.017930297, 0, 0.14093907, -1.4232403, 0.09753305, 1.9000547)

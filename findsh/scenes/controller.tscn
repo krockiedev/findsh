@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://cd7rebgsdt1fd"]
 
 [ext_resource type="Script" uid="uid://byp0fawrros0h" path="res://script/lever.gd" id="1_60fnl"]
+[ext_resource type="AudioStream" uid="uid://bkcc67anhpivl" path="res://assets/SFX/ButtonDownSFX.mp3" id="2_um401"]
+[ext_resource type="AudioStream" uid="uid://e5d850rs7teo" path="res://assets/SFX/ButtonUpSFX.mp3" id="3_a3fk4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70735"]
 resource_name = "Square"
@@ -216,7 +218,7 @@ transform = Transform3D(0.04384482, 0, 0, 0, 0.04293446, -0.003305196, 0, 0.0066
 mesh = SubResource("ArrayMesh_l1ohe")
 
 [node name="UpButton" type="MeshInstance3D" parent="Buttons" unique_id=439100428]
-transform = Transform3D(0.04384482, 0, 0, 0, 0.04293446, -0.0033051963, 0, 0.006644257, 0.021357816, 0, -0.01896298, 1.3391036)
+transform = Transform3D(0.04384482, 0, 0, 0, 0.04293446, -0.0033051968, 0, 0.0066442573, 0.021357816, 0, -0.01896298, 1.3391036)
 mesh = SubResource("ArrayMesh_6gymu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons" unique_id=1763581766]
@@ -233,6 +235,14 @@ shape = SubResource("BoxShape3D_3prpj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Down_Button" unique_id=1415556796]
 transform = Transform3D(1, -6.319766e-09, 2.9960248e-08, 2.8042656e-08, -0.20386568, -0.97899866, 1.2294805e-08, 0.9789989, -0.20386565, 3.7252903e-09, -0.13827398, 1.2926416)
 shape = SubResource("BoxShape3D_um401")
+
+[node name="ButtonDownSFX" type="AudioStreamPlayer3D" parent="." unique_id=942035939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.050056577, 0)
+stream = ExtResource("2_um401")
+
+[node name="ButtonUpSFX" type="AudioStreamPlayer3D" parent="." unique_id=580259849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.078401834, 0)
+stream = ExtResource("3_a3fk4")
 
 [connection signal="input_event" from="Buttons/Up_Button" to="." method="pressed_up"]
 [connection signal="input_event" from="Buttons/Down_Button" to="." method="pressed_down"]

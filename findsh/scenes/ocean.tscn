@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
 [ext_resource type="PackedScene" uid="uid://tnifqsonfwlr" path="res://scenes/Submarine.tscn" id="2_fiuhb"]
-[ext_resource type="Texture2D" uid="uid://dl7dp58vw8gw" path="res://assets/Texture/Sand.png" id="4_a1ohp"]
 [ext_resource type="Shader" uid="uid://ckg52v0oushrs" path="res://scenes/ocean.gdshader" id="6_vjho5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjho5"]
@@ -40,13 +39,40 @@ shader_parameter/ray_density = 19.3970008738575
 material = SubResource("ShaderMaterial_5y37k")
 size = Vector2(250, 100)
 
-[sub_resource type="BoxMesh" id="BoxMesh_6bs85"]
-size = Vector3(29.470947, 0.23059082, 20.640625)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a1ohp"]
+noise_type = 2
+frequency = 0.1
+cellular_return_type = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogne1"]
-albedo_texture = ExtResource("4_a1ohp")
-uv1_scale = Vector3(1.1, 1.1, 1.1)
-uv1_offset = Vector3(0, 0.26, 0)
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mn261"]
+noise = SubResource("FastNoiseLite_a1ohp")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mn261"]
+noise_type = 0
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a1ohp"]
+width = 579
+height = 590
+noise = SubResource("FastNoiseLite_mn261")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6vf3"]
+albedo_color = Color(0.101960786, 0.10980392, 0.101960786, 1)
+roughness = 0.8
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = SubResource("NoiseTexture2D_a1ohp")
+detail_enabled = true
+detail_blend_mode = 3
+detail_albedo = SubResource("NoiseTexture2D_mn261")
+uv1_scale = Vector3(3.38, 3.38, 3.38)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bs85"]
+material = SubResource("StandardMaterial3D_u6vf3")
+size = Vector3(29.470947, 0.23059082, 20.640625)
 
 [node name="Ocean" type="Node3D" unique_id=720181083 groups=["ocean"]]
 script = ExtResource("1_fiuhb")
@@ -64,7 +90,6 @@ mesh = SubResource("PlaneMesh_6bs85")
 
 [node name="Fishes" type="Node3D" parent="." unique_id=1171434936 groups=["Fishes"]]
 
-[node name="SeaFloor" type="MeshInstance3D" parent="." unique_id=1194488247]
+[node name="SeaMothafuckinFloor" type="MeshInstance3D" parent="." unique_id=673093555]
 transform = Transform3D(1, 0, 0, 0, 0.9997037, 0.024340212, 0, -0.024340212, 0.9997037, 0, -31.975382, 5.871293)
 mesh = SubResource("BoxMesh_6bs85")
-surface_material_override/0 = SubResource("StandardMaterial3D_ogne1")

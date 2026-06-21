@@ -41,11 +41,9 @@ func move_submarine(state: int):
 	FishInfo.submarine_moving = true
 	FishInfo.fish_running = true
 
-	# Set up dynamic placeholders to pass down to the tweens below
 	var start_y: float = submarine.global_position.y
 	var target_y: float = start_y
-	var move_duration: float = 7.0 # Default fallback duration
-	
+	var move_duration: float = 7.0
 	match state:
 		1:
 			if subposition == "coral":

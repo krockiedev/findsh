@@ -1,30 +1,14 @@
 [gd_scene format=4 uid="uid://cvo56aw1wns4n"]
 
 [ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_7m4pi"]
-[ext_resource type="Texture2D" uid="uid://dqjryedaxvcem" path="res://assets/Whale Shark/Whale Shark (1)_Body_1.png" id="2_vmjsv"]
-[ext_resource type="Texture2D" uid="uid://qvr1360lxg3x" path="res://assets/Whale Shark/Whale Shark (1)_Body.004_Metallic-Body.png" id="3_d16ly"]
-[ext_resource type="Texture2D" uid="uid://btat6it8ckhd4" path="res://assets/Whale Shark/Whale Shark (1)_Body.png" id="4_5o0p6"]
-[ext_resource type="Texture2D" uid="uid://b1etuai8fhgc8" path="res://assets/Whale Shark/Whale Shark (1)_Top fin_4.png" id="5_amlfi"]
-[ext_resource type="Texture2D" uid="uid://bwcpsepdhu1uf" path="res://assets/Whale Shark/Whale Shark (1)_Top fin.001_Metallic-Top fin.png" id="6_gm10q"]
-[ext_resource type="Texture2D" uid="uid://db74nkfapb0h5" path="res://assets/Whale Shark/Whale Shark (1)_Top fin.png" id="7_tacls"]
-[ext_resource type="Texture2D" uid="uid://8mqtfqfly4ra" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Base_color.png" id="8_5ix8o"]
-[ext_resource type="Texture2D" uid="uid://bufjg47qhd0s0" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Metallic-Flipers_Roughness.png" id="9_o8saq"]
-[ext_resource type="Texture2D" uid="uid://b88tyfs2vfi3o" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Normal_OpenGL.png" id="10_vt7kt"]
-[ext_resource type="Texture2D" uid="uid://bk5vgimhy2ftb" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Base_color.png" id="11_7k8i4"]
-[ext_resource type="Texture2D" uid="uid://cudiwsn7snqom" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Metallic-Tail fins_Roughness.png" id="12_c4xwt"]
-[ext_resource type="Texture2D" uid="uid://bxf4jiocjdpcx" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Normal_OpenGL.png" id="13_1ttbe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ik7mn"]
 resource_name = "Body"
 cull_mode = 2
-albedo_texture = ExtResource("2_vmjsv")
 metallic = 1.0
-metallic_texture = ExtResource("3_d16ly")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("3_d16ly")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("4_5o0p6")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6fjal"]
@@ -64,14 +48,10 @@ shadow_mesh = SubResource("ArrayMesh_6fjal")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjl27"]
 resource_name = "Fin"
 cull_mode = 2
-albedo_texture = ExtResource("5_amlfi")
 metallic = 1.0
-metallic_texture = ExtResource("6_gm10q")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("6_gm10q")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("7_tacls")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1u10f"]
@@ -111,14 +91,10 @@ shadow_mesh = SubResource("ArrayMesh_1u10f")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1l0x"]
 resource_name = "Swimmers"
 cull_mode = 2
-albedo_texture = ExtResource("8_5ix8o")
 metallic = 1.0
-metallic_texture = ExtResource("9_o8saq")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("9_o8saq")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("10_vt7kt")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_24akw"]
@@ -158,14 +134,10 @@ shadow_mesh = SubResource("ArrayMesh_24akw")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vugmb"]
 resource_name = "TailFin"
 cull_mode = 2
-albedo_texture = ExtResource("11_7k8i4")
 metallic = 1.0
-metallic_texture = ExtResource("12_c4xwt")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("12_c4xwt")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("13_1ttbe")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lmngc"]
@@ -252,7 +224,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011667199, 0, -1.5096405)
 transform = Transform3D(1, -7.8413567e-16, 2.8065468e-13, 2.8065468e-13, 0.005587876, -0.9999844, -7.8413567e-16, 0.9999844, 0.005587876, 0, 0, 0.4606321)
 
 [node name="Bone_005" type="Node3D" parent="Whale Shark (1)/Armature/Bone" unique_id=1303157516]
-transform = Transform3D(1, -3.7292943e-07, -4.6878104e-05, 1.5098637e-07, -0.99993753, 0.011175632, -4.6879348e-05, -0.0111756325, -0.9999375, 5.5879354e-08, -0.10306554, -0.00016169297)
+transform = Transform3D(1, -3.729294e-07, -4.68781e-05, 1.5098637e-07, -0.9999375, 0.011175632, -4.6879348e-05, -0.011175632, -0.9999374, 5.5879354e-08, -0.10306554, -0.00016169297)
 
 [node name="Bone_001" type="Node3D" parent="Whale Shark (1)/Armature/Bone" unique_id=1952201598]
 transform = Transform3D(1, -7.4940054e-16, -8.742306e-08, -4.885108e-10, 0.9999844, -0.0055879033, 8.74217e-08, 0.0055879033, 0.9999844, -9.313215e-10, 0.2827217, 3.492427e-10)

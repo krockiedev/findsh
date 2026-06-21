@@ -48,7 +48,7 @@ func _physics_process(_delta: float) -> void:
 			current_holder.add_to_group("dropable")
 
 
-var max_pages = 2
+var max_pages = 8
 func _on_previous_page_pressed() -> void:
 	if GlobalDraggingHandler.current_book_page == 0: GlobalDraggingHandler.current_book_page = max_pages
 	else: GlobalDraggingHandler.current_book_page -= 1

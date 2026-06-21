@@ -32,9 +32,7 @@ func _physics_process(_delta: float) -> void:
 		if not submarine_moving:
 			feeding_debouce = false
 			fish_running = false
-			print("there's no fish")
 	if get_tree().get_first_node_in_group("ocean").get_node("Fishes").get_children().size() > 0:
-		print("there's fish")
 		feeding_debouce = true
 	
 	$Log_Book/Fish_Name.text = book_pages[GlobalDraggingHandler.current_book_page][0]

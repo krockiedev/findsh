@@ -44,16 +44,19 @@ text = "Undo"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4831123, 0, 0)
 image_camera_pos = Vector3(-7.212, 0.149, 0.691)
 image_camera_rot = Vector3(-23, 30.5, 0)
-
-[node name="Large_Fish" parent="Fishes" unique_id=2145488070 instance=ExtResource("2_iod5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.915056, 0, 0)
-image_camera_pos = Vector3(32.994, 0.717, 1.888)
-image_camera_rot = Vector3(-30.4, 31.2, 0)
+model = true
 
 [node name="Medium_Fish" parent="Fishes" unique_id=335977634 instance=ExtResource("3_33570")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.641291, -0.030323386, 0)
 image_camera_pos = Vector3(7.188, 0.541, 1.503)
 image_camera_rot = Vector3(-31.5, -25, 0)
+model = true
+
+[node name="Large_Fish" parent="Fishes" unique_id=1258915648 instance=ExtResource("2_iod5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.332302, -0.20844293, 0.106678724)
+image_camera_pos = Vector3(32.994, 0.717, 1.888)
+image_camera_rot = Vector3(-30.4, 31.2, 0)
+model = true
 
 [node name="Open_Book" type="Button" parent="." unique_id=1627911381]
 layout_mode = 1

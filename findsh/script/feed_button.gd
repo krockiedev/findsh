@@ -3,7 +3,8 @@ extends Node3D
 var spawn_fish = false
 
 func _physics_process(delta: float) -> void:
-	$Fish_Spawn_Timer.stop()
+	if FishInfo.fish_running:
+		$Fish_Spawn_Timer.stop()
 
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:

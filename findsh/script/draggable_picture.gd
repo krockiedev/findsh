@@ -80,6 +80,8 @@ func _on_draggable_mouse_entered() -> void:
 		draggable = true
 		if !is_inside_holder: scale = Vector2(1.02,1.02)
 		else: scale = Vector2(0.55,0.55)
+		
+		
 
 
 func _on_draggable_mouse_exited() -> void:

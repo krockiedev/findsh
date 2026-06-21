@@ -1,18 +1,18 @@
-[gd_scene format=4 uid="uid://clyvaorjeacdb"]
+[gd_scene format=4 uid="uid://di0np6u4sxgiu"]
 
-[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_7m4pi"]
-[ext_resource type="Texture2D" uid="uid://dqjryedaxvcem" path="res://assets/Whale Shark/Whale Shark (1)_Body_1.png" id="2_l4lmm"]
-[ext_resource type="Texture2D" uid="uid://qvr1360lxg3x" path="res://assets/Whale Shark/Whale Shark (1)_Body.004_Metallic-Body.png" id="3_8uaq7"]
-[ext_resource type="Texture2D" uid="uid://btat6it8ckhd4" path="res://assets/Whale Shark/Whale Shark (1)_Body.png" id="4_rd6x1"]
-[ext_resource type="Texture2D" uid="uid://b1etuai8fhgc8" path="res://assets/Whale Shark/Whale Shark (1)_Top fin_4.png" id="5_vh7so"]
-[ext_resource type="Texture2D" uid="uid://bwcpsepdhu1uf" path="res://assets/Whale Shark/Whale Shark (1)_Top fin.001_Metallic-Top fin.png" id="6_w5e2q"]
-[ext_resource type="Texture2D" uid="uid://db74nkfapb0h5" path="res://assets/Whale Shark/Whale Shark (1)_Top fin.png" id="7_c8b4n"]
-[ext_resource type="Texture2D" uid="uid://8mqtfqfly4ra" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Base_color.png" id="8_ljvbr"]
-[ext_resource type="Texture2D" uid="uid://bufjg47qhd0s0" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Metallic-Flipers_Roughness.png" id="9_t3b2g"]
-[ext_resource type="Texture2D" uid="uid://b88tyfs2vfi3o" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Normal_OpenGL.png" id="10_ha7ha"]
-[ext_resource type="Texture2D" uid="uid://bk5vgimhy2ftb" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Base_color.png" id="11_vwtv2"]
-[ext_resource type="Texture2D" uid="uid://cudiwsn7snqom" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Metallic-Tail fins_Roughness.png" id="12_hbjpa"]
-[ext_resource type="Texture2D" uid="uid://bxf4jiocjdpcx" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Normal_OpenGL.png" id="13_hrlt5"]
+[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_0dhmu"]
+[ext_resource type="Texture2D" uid="uid://dqjryedaxvcem" path="res://assets/Whale Shark/Whale Shark (1)_Body_1.png" id="2_qw863"]
+[ext_resource type="Texture2D" uid="uid://qvr1360lxg3x" path="res://assets/Whale Shark/Whale Shark (1)_Body.004_Metallic-Body.png" id="3_vk3pt"]
+[ext_resource type="Texture2D" uid="uid://btat6it8ckhd4" path="res://assets/Whale Shark/Whale Shark (1)_Body.png" id="4_33m5c"]
+[ext_resource type="Texture2D" uid="uid://b1etuai8fhgc8" path="res://assets/Whale Shark/Whale Shark (1)_Top fin_4.png" id="5_8yo65"]
+[ext_resource type="Texture2D" uid="uid://bwcpsepdhu1uf" path="res://assets/Whale Shark/Whale Shark (1)_Top fin.001_Metallic-Top fin.png" id="6_031fh"]
+[ext_resource type="Texture2D" uid="uid://db74nkfapb0h5" path="res://assets/Whale Shark/Whale Shark (1)_Top fin.png" id="7_heac8"]
+[ext_resource type="Texture2D" uid="uid://8mqtfqfly4ra" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Base_color.png" id="8_vc601"]
+[ext_resource type="Texture2D" uid="uid://bufjg47qhd0s0" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Metallic-Flipers_Roughness.png" id="9_x6fus"]
+[ext_resource type="Texture2D" uid="uid://b88tyfs2vfi3o" path="res://assets/Whale Shark/Whale Shark (1)_Flipers_Normal_OpenGL.png" id="10_cb4ge"]
+[ext_resource type="Texture2D" uid="uid://bk5vgimhy2ftb" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Base_color.png" id="11_8jkri"]
+[ext_resource type="Texture2D" uid="uid://cudiwsn7snqom" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Metallic-Tail fins_Roughness.png" id="12_sidst"]
+[ext_resource type="Texture2D" uid="uid://bxf4jiocjdpcx" path="res://assets/Whale Shark/Whale Shark (1)_Tail fins_Normal_OpenGL.png" id="13_dpfnc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bs85"]
 size = Vector3(2.3544922, 1.5355835, 2.7460632)
@@ -20,14 +20,14 @@ size = Vector3(2.3544922, 1.5355835, 2.7460632)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ik7mn"]
 resource_name = "Body"
 cull_mode = 2
-albedo_texture = ExtResource("2_l4lmm")
+albedo_texture = ExtResource("2_qw863")
 metallic = 1.0
-metallic_texture = ExtResource("3_8uaq7")
+metallic_texture = ExtResource("3_vk3pt")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("3_8uaq7")
+roughness_texture = ExtResource("3_vk3pt")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("4_rd6x1")
+normal_texture = ExtResource("4_33m5c")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6fjal"]
@@ -67,14 +67,14 @@ shadow_mesh = SubResource("ArrayMesh_6fjal")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjl27"]
 resource_name = "Fin"
 cull_mode = 2
-albedo_texture = ExtResource("5_vh7so")
+albedo_texture = ExtResource("5_8yo65")
 metallic = 1.0
-metallic_texture = ExtResource("6_w5e2q")
+metallic_texture = ExtResource("6_031fh")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("6_w5e2q")
+roughness_texture = ExtResource("6_031fh")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("7_c8b4n")
+normal_texture = ExtResource("7_heac8")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1u10f"]
@@ -114,14 +114,14 @@ shadow_mesh = SubResource("ArrayMesh_1u10f")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1l0x"]
 resource_name = "Swimmers"
 cull_mode = 2
-albedo_texture = ExtResource("8_ljvbr")
+albedo_texture = ExtResource("8_vc601")
 metallic = 1.0
-metallic_texture = ExtResource("9_t3b2g")
+metallic_texture = ExtResource("9_x6fus")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("9_t3b2g")
+roughness_texture = ExtResource("9_x6fus")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("10_ha7ha")
+normal_texture = ExtResource("10_cb4ge")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_24akw"]
@@ -161,14 +161,14 @@ shadow_mesh = SubResource("ArrayMesh_24akw")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vugmb"]
 resource_name = "TailFin"
 cull_mode = 2
-albedo_texture = ExtResource("11_vwtv2")
+albedo_texture = ExtResource("11_8jkri")
 metallic = 1.0
-metallic_texture = ExtResource("12_hbjpa")
+metallic_texture = ExtResource("12_sidst")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("12_hbjpa")
+roughness_texture = ExtResource("12_sidst")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("13_hrlt5")
+normal_texture = ExtResource("13_dpfnc")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lmngc"]
@@ -241,7 +241,7 @@ _data = {
 }
 
 [node name="Large_Fish" type="Area3D" unique_id=335977634]
-script = ExtResource("1_7m4pi")
+script = ExtResource("1_0dhmu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=335585311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026855469, 0.018218994, 0.018478394)

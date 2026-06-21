@@ -7,20 +7,23 @@ func _physics_process(delta: float) -> void:
 		$Fish_Spawn_Timer.stop()
 
 
+
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if not FishInfo.feeding_debouce and not FishInfo.submarine_moving:
+			if not FishInfo.feeding_debouce and not FishInfo.submarine_moving and not FishInfo.fish_running and not $GPUParticles3D.emitting:
 				FishInfo.feeding_debouce = true
 				$GPUParticles3D.emitting = true
-				await get_tree().create_timer(4.0).timeout
-				$GPUParticles3D.emitting = false
+				await get_tree().create_timer(2.0).timeout
 				$Fish_Spawn_Timer.start()
+				await get_tree().create_timer(2.0).timeout
+				$GPUParticles3D.emitting = false
+				
 
 
 var coral_fishes = {
 	"Small_Fish" = ["Small_Fish",preload("uid://b31mgblwlr0nj")]
-	,"Medium_Fish" = ["Medium_Fish",preload("uid://d4h7ar3h2a1ke")]
+	,"Large_Fish" = ["Large_Fish",preload("uid://clyvaorjeacdb")]
 }
 
 var mid_ocean_fishes = {

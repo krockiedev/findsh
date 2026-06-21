@@ -22,8 +22,8 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 
 
 var coral_fishes = {
-	"Small_Fish" = ["Small_Fish",preload("uid://b31mgblwlr0nj")]
-	,"Large_Fish" = ["Large_Fish",preload("uid://clyvaorjeacdb")]
+	"Whale_Shark" = ["Whale_Shark",preload("uid://clyvaorjeacdb")]
+	,"Sunfish" = ["Sunfish",preload("uid://b0cls3p6lg6q2")]
 }
 
 var mid_ocean_fishes = {

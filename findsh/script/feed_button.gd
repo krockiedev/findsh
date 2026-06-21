@@ -2,10 +2,15 @@ extends Node3D
 
 var spawn_fish = false
 
+func _physics_process(delta: float) -> void:
+	if FishInfo.fish_running:
+		$Fish_Spawn_Timer.stop()
+
+
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if not FishInfo.feeding_debouce:
+			if not FishInfo.feeding_debouce and not FishInfo.submarine_moving:
 				FishInfo.feeding_debouce = true
 				$GPUParticles3D.emitting = true
 				await get_tree().create_timer(4.0).timeout
@@ -19,15 +24,16 @@ var coral_fishes = {
 }
 
 var mid_ocean_fishes = {
-	"Medium_Fish" = preload("uid://d4h7ar3h2a1ke")
+	"Medium_Fish" = ["Medium_Fish",preload("uid://d4h7ar3h2a1ke")]
 }
 
 var abyss_fishes = {
-	"Large_Fish" = preload("uid://clyvaorjeacdb")
+	"Large_Fish" = ["Large_Fish",preload("uid://clyvaorjeacdb")]
 }
 
 
 func _on_fish_spawn_timer_timeout() -> void:
+	if FishInfo.fish_running: return
 	print("spawn fish yo")
 	var fish_dict = {}
 	if FishInfo.current_depth_level == "coral": fish_dict = coral_fishes

@@ -9,12 +9,16 @@ var current_fish = ""
 var previous_pressed_fish = ""
 var pressed_fish = ""
 
+var fish_running = false
+
+var submarine_moving = false
+
 var confirming: bool
 
 var book_pages = {
 	0: ["Large Fish", "In the water"]
 	,1: ["Medium Fish", "In the ocean"]
-	,2: ["Small Fish", "Fuck you"]
+	,2: ["Small Fish", "I love you"]
 }
 
 var logged_fish = {

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cibhnllo05mne" path="res://scenes/player.tscn" id="1_orw0t"]
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_q6hnp"]
 [ext_resource type="AudioStream" uid="uid://deim8jqeg1orl" path="res://assets/SFX/CoralReefAmbience.mp3" id="4_2l1b1"]
+[ext_resource type="Texture2D" uid="uid://dlrfjb2r4hexg" path="res://assets/Texture/Dignity.PNG" id="4_utr7s"]
 [ext_resource type="AudioStream" uid="uid://dfcyr8obv0am6" path="res://assets/SFX/MidLevelAmbience.mp3" id="5_f3ewx"]
 [ext_resource type="AudioStream" uid="uid://cvrklfsmi1ofr" path="res://assets/SFX/AbyssLevelAmbience.mp3" id="6_iyq2c"]
 [ext_resource type="AudioStream" uid="uid://cakxctbaye4kb" path="res://assets/SFX/SubmarineMoving.mp3" id="7_iyq2c"]
@@ -68,6 +69,11 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8pe5q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utr7s"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0.3987402, 0.347014, 0.33733007, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4r5cb"]
 points = PackedVector3Array(1, 0.63390756, 0.99487936, 1, -0.63410336, 0.99487936, 1, 0.63390756, -1.0212129, 0.95086145, 0.8169538, 0.99487936, 0.9042678, 0.7770164, 1.0045959, 0.95086145, 0.6029757, 1.0045959, 0.95086145, -0.8171496, 0.99487936, 1, -0.63410336, -1.0212129, 0.95086145, -0.60317147, 1.0045959, 0.9042678, -0.7772122, 1.0045959, 0.95086145, 0.8169538, -1.0212129, 0.8169538, 0.95086145, 0.99487936, 0.7770164, 0.9042678, 1.0045959, 0.8169538, -0.9510572, 0.99487936, 0.95086145, -0.8171496, -1.0212129, 0.7770164, -0.9044636, 1.0045959, 0.8169538, 0.95086145, -1.0212129, 0.63390756, 1, -1.0212129, 0.63390756, 0.99980426, 0.99487936, 0.6029757, 0.95086145, 1.0045959, 0.63390756, -1, 0.99487936, 0.8169538, -0.9510572, -1.0212129, 0.6029757, -0.9510572, 1.0045959, -0.63410336, 1, -1.0212129, -0.63410336, 0.99980426, 0.99487936, -0.60317147, 0.95086145, 1.0045959, -0.63410336, -1, 0.99487936, 0.63390756, -1, -1.0212129, -0.60317147, -0.9510572, 1.0045959, -0.8171496, 0.95086145, -1.0212129, -0.8171496, 0.95086145, 0.99487936, -0.7772122, 0.9042678, 1.0045959, -0.8171496, -0.9510572, 0.99487936, -0.63410336, -1, -1.0212129, -0.7772122, -0.9044636, 1.0045959, -0.9510572, 0.8169538, -1.0212129, -0.9510572, 0.8169538, 0.99487936, -0.9044636, 0.7770164, 1.0045959, -0.9510572, -0.8171496, 0.99487936, -0.8171496, -0.9510572, -1.0212129, -0.9044636, -0.7772122, 1.0045959, -1, 0.63390756, -1.0212129, -1, 0.63390756, 0.99487936, -0.9510572, 0.6029757, 1.0045959, -1, -0.63410336, 0.99487936, -0.9510572, -0.8171496, -1.0212129, -0.9510572, -0.60317147, 1.0045959, -1, -0.63410336, -1.0212129)
@@ -574,6 +580,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2iphl")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn261"]
+albedo_color = Color(0.16862746, 1, 0.38039216, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it8s4"]
 resource_name = "Thumb"
 cull_mode = 2
@@ -652,6 +661,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fcsp4")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p3xb"]
+albedo_texture = ExtResource("4_utr7s")
+uv1_scale = Vector3(2.645, 2.645, 2.645)
+uv1_offset = Vector3(0.135, 0.035, 0)
+
 [node name="Submarine" type="Node3D" unique_id=1938863406 groups=["submarine"]]
 
 [node name="Glass" type="Node3D" parent="." unique_id=232208397]
@@ -670,6 +684,7 @@ mesh = SubResource("QuadMesh_t56lg")
 [node name="SubOuter" type="MeshInstance3D" parent="Submarine" unique_id=1534525173]
 transform = Transform3D(1.6130637, 0, 0, 0, 1.5445458, 0, 0, 0, 2.8868554, 0, 0, 0)
 mesh = SubResource("ArrayMesh_oxjbh")
+surface_material_override/0 = SubResource("StandardMaterial3D_utr7s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Submarine/SubOuter" unique_id=1420510111]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -697,41 +712,51 @@ transform = Transform3D(1.122468, 0, 0, 0, 0.22327484, 0, 0, 0, -0.51281947, 0, 
 mesh = SubResource("ArrayMesh_cbwfl")
 
 [node name="Sphere" type="MeshInstance3D" parent="Submarine" unique_id=1546182180]
-transform = Transform3D(0.10788008, 0, 0, 0, 0.10788008, 0, 0, 0, 0.10788008, 1.5083537, 0, 1.2791107)
+transform = Transform3D(0.10788008, 0, 0, 0, 0.10788008, 0, 0, 0, 0.10788008, 1.5083537, 0, 1.9779432)
 mesh = SubResource("ArrayMesh_ytqeg")
 
 [node name="Cup" type="MeshInstance3D" parent="Submarine" unique_id=170418703]
 transform = Transform3D(0.031834953, 0, -0.03053586, 0, 0.044112388, 0, 0.03053586, 0, 0.031834953, -0.52071995, -0.51326007, 2.0153303)
 mesh = SubResource("ArrayMesh_tosfx")
 
-[node name="Cube" type="MeshInstance3D" parent="Submarine" unique_id=963728656]
+[node name="Corkboard" type="MeshInstance3D" parent="Submarine" unique_id=963728656]
 transform = Transform3D(-0.036666986, 0, 0, 0, 0.45000052, 0, 0, 0, 1, -1.4774877, 0.2765209, 1.2722471)
 mesh = SubResource("ArrayMesh_0cygn")
 
-[node name="Cube_001" type="MeshInstance3D" parent="Submarine" unique_id=1951367409]
+[node name="Cork" type="MeshInstance3D" parent="Submarine" unique_id=1951367409]
 transform = Transform3D(-0.012612973, 0, 0, 0, 0.39648855, 0, 0, 0, 0.9269392, -1.444243, 0.2765209, 1.2722471)
 mesh = SubResource("ArrayMesh_c3ukh")
 surface_material_override/0 = SubResource("StandardMaterial3D_3prpj")
 
-[node name="Cube_002" type="MeshInstance3D" parent="Submarine" unique_id=761644581]
+[node name="Photo" type="MeshInstance3D" parent="Submarine" unique_id=761644581]
 transform = Transform3D(-0.008848377, 0, 0, 0, -0.03582669, -0.10584767, 0, 0.10584767, -0.03582669, -1.4195212, 0.49803138, 2.0041442)
 mesh = SubResource("ArrayMesh_sotbn")
 surface_material_override/1 = SubResource("StandardMaterial3D_ecokc")
 
-[node name="Cylinder" type="MeshInstance3D" parent="Submarine" unique_id=170074552]
+[node name="Thumbtack" type="MeshInstance3D" parent="Submarine" unique_id=170074552]
 transform = Transform3D(0.0068470794, 0.019779105, 0, -0.019125463, 0.0070810886, 0, 0, 0, 0.02002033, -1.3832549, 0.59315884, 2.0153303)
 mesh = SubResource("ArrayMesh_7eigw")
 
-[node name="Cylinder_001" type="MeshInstance3D" parent="Submarine" unique_id=753355668]
+[node name="Thumbtack2" type="MeshInstance3D" parent="Submarine" unique_id=519011560]
+transform = Transform3D(0.0068470794, 0.019779105, 0, -0.019125463, 0.0070810886, 0, 0, 0, 0.02002033, -1.3832549, 0.18140477, 1.8910232)
+mesh = SubResource("ArrayMesh_7eigw")
+surface_material_override/0 = SubResource("StandardMaterial3D_mn261")
+
+[node name="Needle" type="MeshInstance3D" parent="Submarine" unique_id=753355668]
 transform = Transform3D(0.0016553352, 0.0054169972, 0, -0.004623728, 0.0019393328, 0, 0, 0, 0.0066240896, -1.4083982, 0.58180946, 2.0153303)
 mesh = SubResource("ArrayMesh_gs51l")
 
-[node name="Cube_003" type="MeshInstance3D" parent="Submarine" unique_id=1449686811]
+[node name="Paper" type="MeshInstance3D" parent="Submarine" unique_id=1449686811]
 transform = Transform3D(0.11821695, 0, -0.035448298, 0, 0.01170336, 0, 0.024341209, 0, 0.17216028, -0.7357948, -0.52807164, 1.8387966)
 mesh = SubResource("ArrayMesh_bfx3g")
 
+[node name="Family Photo" type="MeshInstance3D" parent="Submarine" unique_id=1663199398]
+transform = Transform3D(0.0031125145, 0.01179357, -0.001037242, -0.087025695, 0.00042180243, 0.029001217, 0.017930297, 0, 0.14093907, -1.4232403, 0.09753305, 1.9000547)
+mesh = SubResource("ArrayMesh_bfx3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_2p3xb")
+
 [node name="Controller" parent="." unique_id=735387554 instance=ExtResource("11_ecokc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5055739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7283378)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2009405609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.1540304)
@@ -762,10 +787,20 @@ volume_db = 20.0
 
 [node name="Feed_Button" parent="." unique_id=474441100 instance=ExtResource("9_pnx7u")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.052247882, -0.6029911, 2.8157525)
-visible = false
 
 [node name="Player" parent="." unique_id=1294710407 instance=ExtResource("1_orw0t")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.22057623, 1.582574)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2028566276]
-transform = Transform3D(1, 0, 0, 0, 0.96189916, -0.27340442, 0, 0.27340442, 0.96189916, 0, 0, 7.8623734)
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1167349859]
+transform = Transform3D(-1, 7.1054274e-15, -8.940697e-08, -7.61766e-08, 0.52350783, 0.85202086, 4.680525e-08, 0.85202086, -0.52350783, 0, 0, 5.6674385)
+light_energy = 10.465
+shadow_enabled = true
+distance_fade_length = 3413.72
+spot_range = 7.3748226
+spot_angle = 67.01395
+
+[node name="Node3D" type="Node3D" parent="." unique_id=746261947]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D" unique_id=1197589976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2.0127654)
+light_color = Color(5.2943824e-06, 0.87979454, 0.21959195, 1)

@@ -21,4 +21,4 @@ func Black_in2():
 
 func Start():
 	await $AnimationPlayer.animation_finished
-	Fade.get_tree().change_scene_to_file("res://scenes/ocean.tscn")
+	get_tree().change_scene_to_file("res://scenes/ocean.tscn")

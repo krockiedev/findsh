@@ -34,3 +34,9 @@ func transition_ocean_depth(target_color: Color, target_end_distance: float, dur
 		target_color,
 		duration
 	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	print("destroyed: " + body.name)
+	body.queue_free()

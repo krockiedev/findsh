@@ -9,6 +9,8 @@ var current_fish = ""
 var previous_pressed_fish = ""
 var pressed_fish = ""
 
+var fish_running = false
+
 var confirming: bool
 
 var book_pages = {

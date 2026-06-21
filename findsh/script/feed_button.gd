@@ -28,6 +28,7 @@ var abyss_fishes = {
 
 
 func _on_fish_spawn_timer_timeout() -> void:
+	if FishInfo.fish_running: return
 	print("spawn fish yo")
 	var fish_dict = {}
 	if FishInfo.current_depth_level == "coral": fish_dict = coral_fishes

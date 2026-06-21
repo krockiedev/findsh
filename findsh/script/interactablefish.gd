@@ -5,6 +5,12 @@ extends Area3D
 @export var image_camera_pos: Vector3
 @export var image_camera_rot: Vector3
 
+var y_escape = 0
+var z_escape = 0
+var x_escape = 0
+
+var running_rotation = randi_range(0,30)
+
 var dir_mode = 0
 
 var base_name: String
@@ -22,13 +28,19 @@ func _physics_process(delta: float) -> void:
 		for i in range(10):
 			base_name = base_name.replace(str(i),"")
 	
+	if FishInfo.fish_running:
+		y_escape = randf_range(-0.5,0.5)
+		z_escape = randf_range(-0.5,0)
+		x_escape = randf_range(1.5,2)
+		
+	
 	if dir_mode == 1:
 		global_rotation_degrees = Vector3(0,-90,0)
-		global_position += Vector3(-0.5*randf_range(1,4)*delta,0,0)
+		global_position += Vector3(-x_escape*randf_range(1,4)*delta,y_escape*randf_range(1,4)*delta,z_escape*randf_range(1,4)*delta)
 		#print(global_position)
 	if dir_mode == 2:
 		global_rotation_degrees = Vector3(0,90,0)
-		global_position += Vector3(0.5*randf_range(1,4)*delta,0,0)
+		global_position += Vector3(x_escape*randf_range(1,4)*delta,y_escape*randf_range(1,4)*delta,x_escape*randf_range(1,4)*delta)
 		
 	if FishInfo.pressed_fish != base_name:
 		$Mesh.get_active_material(0).albedo_color = original_albedo
@@ -67,7 +79,7 @@ func _on_fish_pressed(_camera: Node, event: InputEvent, event_position: Vector3,
 			FishInfo.pressed_fish = base_name
 			
 			$Mesh.get_active_material(0).albedo_color = Color("00ffff7e")
-			
+			FishInfo.fish_running = true
 			FishInfo.create_draggable_picture()
 
 

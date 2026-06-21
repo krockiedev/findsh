@@ -34,3 +34,4 @@ shape = SubResource("BoxShape3D_0oxhw")
 [connection signal="input_event" from="." to="." method="_on_fish_pressed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

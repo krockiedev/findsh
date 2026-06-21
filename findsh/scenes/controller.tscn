@@ -239,10 +239,14 @@ shape = SubResource("BoxShape3D_um401")
 [node name="ButtonDownSFX" type="AudioStreamPlayer3D" parent="." unique_id=942035939]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.050056577, 0)
 stream = ExtResource("2_um401")
+volume_db = 10.0
+unit_size = 30.0
 
 [node name="ButtonUpSFX" type="AudioStreamPlayer3D" parent="." unique_id=580259849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.078401834, 0)
 stream = ExtResource("3_a3fk4")
+volume_db = 10.0
+unit_size = 30.0
 
 [connection signal="input_event" from="Buttons/Up_Button" to="." method="pressed_up"]
 [connection signal="input_event" from="Buttons/Down_Button" to="." method="pressed_down"]

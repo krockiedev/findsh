@@ -36,10 +36,16 @@ func move_submarine(state: int):
 	var submarine = get_tree().get_first_node_in_group("submarine")
 	var ocean_node = get_tree().get_first_node_in_group("ocean")
 	var tween_submarine = get_tree().create_tween()
-	
+	var ui_node = get_tree().get_first_node_in_group("depth")
 	moveable = false
 	FishInfo.submarine_moving = true
 	FishInfo.fish_running = true
+
+	# Set up dynamic placeholders to pass down to the tweens below
+	var start_y: float = submarine.global_position.y
+	var target_y: float = start_y
+	var move_duration: float = 7.0 # Default fallback duration
+	
 	match state:
 		1:
 			if subposition == "coral":
@@ -50,14 +56,18 @@ func move_submarine(state: int):
 				volume_adjust(abysssfx,2)
 				if ocean_node:
 					ocean_node.transition_ocean_depth(Color("0f2e55"), 25.0, 7.0)
-				tween_submarine.tween_property(submarine, "global_position:y", submarine.global_position.y + 90, 15)
+				target_y = start_y + 90
+				move_duration = 15.0
+				tween_submarine.tween_property(submarine, "global_position:y", target_y, move_duration)
 			elif subposition == "mid_ocean":
 				subposition = "coral"
 				volume_adjust(midsfx,1)
 				volume_adjust(coralsfx,2)
 				if ocean_node:
 					ocean_node.transition_ocean_depth(Color("1a867aff"), 40.0, 7.0)
-				tween_submarine.tween_property(submarine, "global_position:y", submarine.global_position.y + 90, 7)
+				target_y = start_y + 90
+				move_duration = 7.0
+				tween_submarine.tween_property(submarine, "global_position:y", target_y, move_duration)
 		2:
 			if subposition == "abyss":
 				return
@@ -67,15 +77,28 @@ func move_submarine(state: int):
 				volume_adjust(midsfx,2)
 				if ocean_node:
 					ocean_node.transition_ocean_depth(Color("1a457aff"), 25.0, 7.0)
-				tween_submarine.tween_property(submarine, "global_position:y", submarine.global_position.y - 90, 7)
+				target_y = start_y - 90
+				move_duration = 7.0
+				tween_submarine.tween_property(submarine, "global_position:y", target_y, move_duration)
 			elif subposition == "mid_ocean":
 				subposition = "abyss"
 				volume_adjust(midsfx,1)
 				volume_adjust(abysssfx,2)
 				if ocean_node:
 					ocean_node.transition_ocean_depth(Color("01090e"), 15.0, 6.0)
-				tween_submarine.tween_property(submarine, "global_position:y", submarine.global_position.y - 90, 10)
-				
+				target_y = start_y - 90
+				move_duration = 10.0
+				tween_submarine.tween_property(submarine, "global_position:y", target_y, move_duration)
+
+	# Now your UI depth indicator scales perfectly to match whatever route you chose!
+	if ui_node:
+		tween_submarine.parallel().tween_method(
+			ui_node.update_depth_meter, 
+			start_y, 
+			target_y, 
+			move_duration 
+		).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+
 	await tween_submarine.finished
 	FishInfo.current_depth_level = subposition
 	if subposition == "abyss":

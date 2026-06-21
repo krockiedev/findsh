@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://c1xue2cc3bcvo" path="res://scenes/feed_button.tscn" id="9_pnx7u"]
 [ext_resource type="Texture2D" uid="uid://c0t0peihqv2qk" path="res://assets/Texture/goofy ahh.png" id="10_3prpj"]
 [ext_resource type="PackedScene" uid="uid://cd7rebgsdt1fd" path="res://scenes/controller.tscn" id="11_ecokc"]
+[ext_resource type="Script" uid="uid://dgkjlbfb08qur" path="res://script/depth.gd" id="14_0qk02"]
+[ext_resource type="Texture2D" uid="uid://d10yikkfa0436" path="res://assets/SubMeter.png" id="14_hqfmn"]
+[ext_resource type="Texture2D" uid="uid://ok0u1ofh4mpy" path="res://assets/Submarine.png" id="15_7xtjw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
 render_priority = 0
@@ -763,7 +766,7 @@ mesh = SubResource("ArrayMesh_bfx3g")
 surface_material_override/0 = SubResource("StandardMaterial3D_2p3xb")
 
 [node name="Controller" parent="." unique_id=735387554 instance=ExtResource("11_ecokc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7283378)
+transform = Transform3D(0.91077423, 0, 0.4129047, 0, 1, 0, -0.4129047, 0, 0.91077423, 0.7741194, -0.10614982, 2.311752)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2009405609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.1540304)
@@ -811,3 +814,36 @@ spot_angle = 67.01395
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D" unique_id=1197589976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2.0127654)
 light_color = Color(5.2943824e-06, 0.87979454, 0.21959195, 1)
+
+[node name="Depth" type="Control" parent="." unique_id=2133611698 groups=["depth"]]
+layout_mode = 3
+anchor_left = 0.01640625
+anchor_top = 0.036111113
+anchor_right = 0.159375
+anchor_bottom = 0.38055557
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("14_0qk02")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Depth" unique_id=1641758314]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_hqfmn")
+expand_mode = 1
+
+[node name="Submarine" type="TextureRect" parent="Depth/Background" unique_id=980834402]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35519126
+anchor_top = 0.072580636
+anchor_right = 0.6368814
+anchor_bottom = 0.27172306
+texture = ExtResource("15_7xtjw")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

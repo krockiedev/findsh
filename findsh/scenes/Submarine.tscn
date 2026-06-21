@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cibhnllo05mne" path="res://scenes/player.tscn" id="1_orw0t"]
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_q6hnp"]
 [ext_resource type="AudioStream" uid="uid://deim8jqeg1orl" path="res://assets/SFX/CoralReefAmbience.mp3" id="4_2l1b1"]
+[ext_resource type="Texture2D" uid="uid://dlrfjb2r4hexg" path="res://assets/Texture/Dignity.PNG" id="4_utr7s"]
 [ext_resource type="AudioStream" uid="uid://dfcyr8obv0am6" path="res://assets/SFX/MidLevelAmbience.mp3" id="5_f3ewx"]
 [ext_resource type="AudioStream" uid="uid://cvrklfsmi1ofr" path="res://assets/SFX/AbyssLevelAmbience.mp3" id="6_iyq2c"]
 [ext_resource type="AudioStream" uid="uid://cakxctbaye4kb" path="res://assets/SFX/SubmarineMoving.mp3" id="7_iyq2c"]
@@ -579,6 +580,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2iphl")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn261"]
+albedo_color = Color(0.16862746, 1, 0.38039216, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it8s4"]
 resource_name = "Thumb"
 cull_mode = 2
@@ -657,6 +661,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fcsp4")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p3xb"]
+albedo_texture = ExtResource("4_utr7s")
+uv1_scale = Vector3(2.645, 2.645, 2.645)
+uv1_offset = Vector3(0.135, 0.035, 0)
+
 [node name="Submarine" type="Node3D" unique_id=1938863406 groups=["submarine"]]
 
 [node name="Glass" type="Node3D" parent="." unique_id=232208397]
@@ -728,6 +737,11 @@ surface_material_override/1 = SubResource("StandardMaterial3D_ecokc")
 transform = Transform3D(0.0068470794, 0.019779105, 0, -0.019125463, 0.0070810886, 0, 0, 0, 0.02002033, -1.3832549, 0.59315884, 2.0153303)
 mesh = SubResource("ArrayMesh_7eigw")
 
+[node name="Thumbtack2" type="MeshInstance3D" parent="Submarine" unique_id=519011560]
+transform = Transform3D(0.0068470794, 0.019779105, 0, -0.019125463, 0.0070810886, 0, 0, 0, 0.02002033, -1.3832549, 0.18140477, 1.8910232)
+mesh = SubResource("ArrayMesh_7eigw")
+surface_material_override/0 = SubResource("StandardMaterial3D_mn261")
+
 [node name="Needle" type="MeshInstance3D" parent="Submarine" unique_id=753355668]
 transform = Transform3D(0.0016553352, 0.0054169972, 0, -0.004623728, 0.0019393328, 0, 0, 0, 0.0066240896, -1.4083982, 0.58180946, 2.0153303)
 mesh = SubResource("ArrayMesh_gs51l")
@@ -735,6 +749,11 @@ mesh = SubResource("ArrayMesh_gs51l")
 [node name="Paper" type="MeshInstance3D" parent="Submarine" unique_id=1449686811]
 transform = Transform3D(0.11821695, 0, -0.035448298, 0, 0.01170336, 0, 0.024341209, 0, 0.17216028, -0.7357948, -0.52807164, 1.8387966)
 mesh = SubResource("ArrayMesh_bfx3g")
+
+[node name="Family Photo" type="MeshInstance3D" parent="Submarine" unique_id=1663199398]
+transform = Transform3D(0.0031125145, 0.01179357, -0.001037242, -0.087025695, 0.00042180243, 0.029001217, 0.017930297, 0, 0.14093907, -1.4232403, 0.09753305, 1.9000547)
+mesh = SubResource("ArrayMesh_bfx3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_2p3xb")
 
 [node name="Controller" parent="." unique_id=735387554 instance=ExtResource("11_ecokc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7283378)
@@ -784,4 +803,4 @@ spot_angle = 67.01395
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D" unique_id=1197589976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2.0127654)
-light_color = Color(0.654902, 1, 0.6666667, 1)
+light_color = Color(5.2943824e-06, 0.87979454, 0.21959195, 1)

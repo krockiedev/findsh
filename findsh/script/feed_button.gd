@@ -5,7 +5,7 @@ var spawn_fish = false
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if not FishInfo.feeding_debouce:
+			if not FishInfo.feeding_debouce and not FishInfo.submarine_moving:
 				FishInfo.feeding_debouce = true
 				$GPUParticles3D.emitting = true
 				await get_tree().create_timer(4.0).timeout

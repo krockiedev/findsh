@@ -11,6 +11,8 @@ var pressed_fish = ""
 
 var fish_running = false
 
+var submarine_moving = false
+
 var confirming: bool
 
 var book_pages = {

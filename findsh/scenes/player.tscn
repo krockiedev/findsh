@@ -10,4 +10,5 @@ script = ExtResource("1_3vyb7")
 current = true
 script = ExtResource("2_qhqgy")
 look_intensity_down = 35.0
-max_look_angle = 30.0
+look_intensity_horizontal = 25.0
+max_look_angle = 60.0

@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://clyvaorjeacdb"]
+[gd_scene format=4 uid="uid://cxgtncyj81ntg"]
 
 [ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_7m4pi"]
 [ext_resource type="Texture2D" uid="uid://dqjryedaxvcem" path="res://assets/Whale Shark/Whale Shark (1)_Body_1.png" id="2_l4lmm"]

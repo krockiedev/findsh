@@ -97,8 +97,6 @@ albedo_color = Color(0.79607844, 0.8627451, 0.8509804, 1)
 [sub_resource type="PointMesh" id="PointMesh_mn261"]
 material = SubResource("StandardMaterial3D_a1ohp")
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mdal7"]
-
 [node name="Ocean" type="Node3D" unique_id=720181083 groups=["ocean"]]
 script = ExtResource("1_fiuhb")
 
@@ -126,13 +124,3 @@ lifetime = 30.0
 visibility_aabb = AABB(0, 0, 0, 0, 0, 0)
 process_material = SubResource("ParticleProcessMaterial_6bs85")
 draw_pass_1 = SubResource("PointMesh_mn261")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=77504253]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=816333138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.43812, -1.2867811e-06)
-shape = SubResource("WorldBoundaryShape3D_mdal7")
-debug_color = Color(0.92941177, 0.20392157, 0.43529412, 1)
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -42,6 +42,10 @@ func _physics_process(delta: float) -> void:
 		global_rotation_degrees = Vector3(0,90+running_rotation,0)
 		global_position += Vector3(x_escape*randf_range(1,4)*delta,y_escape*randf_range(1,4)*delta,x_escape*randf_range(1,4)*delta)
 		
+	if global_position.x > 18:
+		print("WAAAAH")
+		queue_free()
+	
 	if FishInfo.pressed_fish != base_name:
 		$Mesh.get_active_material(0).albedo_color = original_albedo
 	if FishInfo.previous_pressed_fish == base_name:
@@ -84,6 +88,11 @@ func _on_fish_pressed(_camera: Node, event: InputEvent, event_position: Vector3,
 			$Mesh.get_active_material(0).albedo_color = Color("00ffff7e")
 			FishInfo.fish_running = true
 			FishInfo.create_draggable_picture()
+			
+			await get_tree().create_timer(5.0).timeout
+			for child in get_tree().get_first_node_in_group("ocean").get_node("Fishes").get_children():
+				child.queue_free()
+			
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:

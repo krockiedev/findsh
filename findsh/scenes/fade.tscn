@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://btciwo7sf7u2i"]
 
-[ext_resource type="Script" uid="uid://l1sv0q06cvu7" path="res://fade.gd" id="1_nukjo"]
+[sub_resource type="GDScript" id="GDScript_gv43q"]
+script/source = "extends CanvasLayer
+
+signal first_fade_finished
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func transition_to_scene(target_scene: String) -> void:
+	animation_player.play(\"FADE_IN\")
+	await animation_player.animation_finished
+	get_tree().change_scene_to_file(target_scene)
+	animation_player.play_backwards(\"FADE_IN\")
+	
+	if get_tree().paused:
+		get_tree().paused = false
+
+func first_fade() -> void:
+	animation_player.play_backwards(\"FADE_IN\")
+	await animation_player.animation_finished
+	first_fade_finished.emit()
+"
 
 [sub_resource type="Animation" id="Animation_76d3x"]
 resource_name = "FADE_IN"
@@ -40,7 +60,7 @@ _data = {
 }
 
 [node name="FADE" type="CanvasLayer" unique_id=1428905743]
-script = ExtResource("1_nukjo")
+script = SubResource("GDScript_gv43q")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=912321854]
 anchors_preset = 15

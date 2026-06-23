@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://clyvaorjeacdb"]
+
+[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_a5fgw"]
+[ext_resource type="PackedScene" uid="uid://j3wrhf7874mb" path="res://assets/Blender/FishGLB/Whale Shark.glb" id="2_il1yh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bs85"]
+size = Vector3(2.3544922, 1.5355835, 4.6311035)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5tag"]
+cull_mode = 1
+shading_mode = 0
+grow_amount = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17ynt"]
+resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_r5tag")
+albedo_color = Color(0, 0.17254902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_irkqp"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_17ynt")
+size = Vector3(1, 0.86157227, 1.9033203)
+
+[node name="Whale_Shark" type="Area3D" unique_id=335977634]
+script = ExtResource("1_a5fgw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=335585311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026855469, 0.018218994, 0.018478394)
+shape = SubResource("BoxShape3D_6bs85")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1604786838]
+aabb = AABB(-1, -1, -1.2219505, 2, 2, 2.443901)
+
+[node name=" Whale Shark" parent="." unique_id=1057926030 instance=ExtResource("2_il1yh")]
+transform = Transform3D(1.4724407, 0.2862135, 0, -0.2862135, 1.4724407, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=948855539]
+visible = false
+mesh = SubResource("BoxMesh_irkqp")
+
+[connection signal="input_event" from="." to="." method="_on_fish_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

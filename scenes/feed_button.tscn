@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://c1xue2cc3bcvo"]
+
+[ext_resource type="Script" uid="uid://c8hwck0m0krxa" path="res://script/feed_button.gd" id="1_8asq8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpe4b"]
+albedo_color = Color(0.5411765, 0, 0.27058825, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8asq8"]
+material = SubResource("StandardMaterial3D_bpe4b")
+size = Vector3(0.106, 0.162, 0.162)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8asq8"]
+data = PackedVector3Array(-0.053, 0.081, 0.081, 0.053, 0.081, 0.081, -0.053, -0.081, 0.081, 0.053, 0.081, 0.081, 0.053, -0.081, 0.081, -0.053, -0.081, 0.081, 0.053, 0.081, -0.081, -0.053, 0.081, -0.081, 0.053, -0.081, -0.081, -0.053, 0.081, -0.081, -0.053, -0.081, -0.081, 0.053, -0.081, -0.081, 0.053, 0.081, 0.081, 0.053, 0.081, -0.081, 0.053, -0.081, 0.081, 0.053, 0.081, -0.081, 0.053, -0.081, -0.081, 0.053, -0.081, 0.081, -0.053, 0.081, -0.081, -0.053, 0.081, 0.081, -0.053, -0.081, -0.081, -0.053, 0.081, 0.081, -0.053, -0.081, 0.081, -0.053, -0.081, -0.081, 0.053, 0.081, 0.081, -0.053, 0.081, 0.081, 0.053, 0.081, -0.081, -0.053, 0.081, 0.081, -0.053, 0.081, -0.081, 0.053, 0.081, -0.081, -0.053, -0.081, 0.081, 0.053, -0.081, 0.081, -0.053, -0.081, -0.081, 0.053, -0.081, 0.081, 0.053, -0.081, -0.081, -0.053, -0.081, -0.081)
+
+[sub_resource type="Curve" id="Curve_8asq8"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8asq8"]
+curve = SubResource("Curve_8asq8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bpe4b"]
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.0728835e-05
+angle_max = 30.000011
+gravity = Vector3(0, -0.41, 1)
+linear_accel_min = 0.99999774
+linear_accel_max = 13.179997
+linear_accel_curve = SubResource("CurveTexture_8asq8")
+scale_min = 0.0
+scale_max = 2.0
+
+[sub_resource type="Gradient" id="Gradient_8asq8"]
+offsets = PackedFloat32Array(0, 0.464, 0.98)
+colors = PackedColorArray(0.41446897, 0.17713898, 1.4439226e-07, 1, 0.44054326, 0.20266448, 0.016190303, 1, 0.58684903, 0.34589085, 0.10703508, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ngru2"]
+gradient = SubResource("Gradient_8asq8")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.99206346, 0.07936508)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnpw4"]
+render_priority = -1
+albedo_texture = SubResource("GradientTexture2D_ngru2")
+billboard_mode = 1
+stencil_flags = 2
+stencil_color = Color(0.78352344, 0.7835234, 0.7835234, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mdal7"]
+material = SubResource("StandardMaterial3D_xnpw4")
+size = Vector2(0.2, 0.2)
+
+[node name="Feed_Button" type="Node3D" unique_id=474441100]
+script = ExtResource("1_8asq8")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=143929760]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=1720182206]
+mesh = SubResource("BoxMesh_8asq8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1268908522]
+shape = SubResource("ConcavePolygonShape3D_8asq8")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=466513098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3884158, -0.32955885, 0)
+emitting = false
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_bpe4b")
+draw_pass_1 = SubResource("QuadMesh_mdal7")
+
+[node name="Fish_Spawn_Timer" type="Timer" parent="." unique_id=2014167151]
+
+[node name="SpawnSide1" type="Node3D" parent="." unique_id=240874106]
+
+[node name="Marker3D" type="Marker3D" parent="SpawnSide1" unique_id=1498750142]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.88876, 1.7801838, -12.084874)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnSide1" unique_id=1244430179]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.946391, 1.0916705, -15.716671)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnSide1" unique_id=730179402]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.946391, 3.1575665, -17.017738)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnSide1" unique_id=2033528932]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.584201, -0.5526633, -14.667441)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnSide1" unique_id=274918695]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.8723717, -2.5806985, -17.75843)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnSide1" unique_id=1529507649]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.14455, -2.5806985, -21.740755)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnSide1" unique_id=1209519084]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.424753, -0.830003, -20.210182)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnSide1" unique_id=1523032158]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.699476, 0.41525722, -22.370476)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnSide1" unique_id=1927230535]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.764982, 2.4226885, -20.707598)
+
+[node name="SpawnSide2" type="Node3D" parent="." unique_id=1063422796]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 24.047047, 0, 0)
+
+[node name="Marker3D10" type="Marker3D" parent="SpawnSide2" unique_id=1524491016]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.164272, 0.92027235, -13.435262)
+
+[node name="Marker3D11" type="Marker3D" parent="SpawnSide2" unique_id=431992151]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.313407, 5.053831, -15.487618)
+
+[node name="Marker3D12" type="Marker3D" parent="SpawnSide2" unique_id=729304618]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.5310955, 5.053831, -17.348179)
+
+[node name="Marker3D13" type="Marker3D" parent="SpawnSide2" unique_id=521622650]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.531096, -3.1265335, -15.487618)
+
+[node name="Marker3D14" type="Marker3D" parent="SpawnSide2" unique_id=950480311]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.359707, -4.141252, -13.435262)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnSide2" unique_id=1344105448]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.326064, 0.45158195, -16.190233)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnSide2" unique_id=1035006481]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.059, -1.132, -12.805)
+
+[node name="Marker3D9" type="Marker3D" parent="SpawnSide2" unique_id=317495289]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.7805614, 0.41525722, -19.213722)
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="timeout" from="Fish_Spawn_Timer" to="." method="_on_fish_spawn_timer_timeout"]

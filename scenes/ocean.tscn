@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://dvccpk6btlh2c"]
+
+[ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
+[ext_resource type="PackedScene" uid="uid://tnifqsonfwlr" path="res://scenes/Submarine.tscn" id="2_fiuhb"]
+[ext_resource type="Shader" uid="uid://ckg52v0oushrs" path="res://scenes/ocean.gdshader" id="6_vjho5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjho5"]
+sky_top_color = Color(0.20392157, 0.68235296, 0.8352941, 1)
+sky_horizon_color = Color(0.14408252, 0.57294565, 0.706565, 1)
+ground_bottom_color = Color(0.0683559, 0.34361926, 0.4288784, 1)
+ground_horizon_color = Color(0.13840121, 0.56964415, 0.6977477, 1)
+
+[sub_resource type="Sky" id="Sky_ogne1"]
+sky_material = SubResource("ProceduralSkyMaterial_vjho5")
+
+[sub_resource type="Environment" id="Environment_ogne1"]
+background_mode = 2
+background_color = Color(0.03137255, 0.1254902, 0.24313726, 1)
+sky = SubResource("Sky_ogne1")
+ambient_light_source = 2
+ambient_light_color = Color(0.056897886, 0.1797604, 0.33256298, 1)
+ambient_light_energy = 0.88
+tonemap_mode = 3
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.101960786, 0.5254902, 0.47843137, 1)
+fog_density = 1.0
+fog_depth_begin = 2.0
+fog_depth_end = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5y37k"]
+render_priority = -1
+shader = ExtResource("6_vjho5")
+shader_parameter/ray_color = Color(0.4509804, 0.81960785, 0.6862745, 0.53333336)
+shader_parameter/speed = 0.738000035055
+shader_parameter/ray_density = 19.3970008738575
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6bs85"]
+material = SubResource("ShaderMaterial_5y37k")
+size = Vector2(250, 100)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a1ohp"]
+noise_type = 2
+frequency = 0.1
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mn261"]
+noise = SubResource("FastNoiseLite_a1ohp")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mn261"]
+noise_type = 0
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a1ohp"]
+width = 579
+height = 590
+noise = SubResource("FastNoiseLite_mn261")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6vf3"]
+albedo_color = Color(0.101960786, 0.10980392, 0.101960786, 1)
+roughness = 0.8
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = SubResource("NoiseTexture2D_a1ohp")
+detail_enabled = true
+detail_blend_mode = 3
+detail_albedo = SubResource("NoiseTexture2D_mn261")
+uv1_scale = Vector3(3.38, 3.38, 3.38)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bs85"]
+material = SubResource("StandardMaterial3D_u6vf3")
+size = Vector3(29.470947, 0.23059082, 20.640625)
+
+[sub_resource type="Curve" id="Curve_mn261"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5052083, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ogne1"]
+curve = SubResource("Curve_mn261")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6bs85"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 181, 20)
+direction = Vector3(1, 0.5, 1)
+initial_velocity_min = -0.14999999
+initial_velocity_max = 0.25
+gravity = Vector3(0, -0.05, 0)
+scale_curve = SubResource("CurveTexture_ogne1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1ohp"]
+shading_mode = 0
+albedo_color = Color(0.79607844, 0.8627451, 0.8509804, 1)
+
+[sub_resource type="PointMesh" id="PointMesh_mn261"]
+material = SubResource("StandardMaterial3D_a1ohp")
+
+[node name="Ocean" type="Node3D" unique_id=720181083 groups=["ocean"]]
+script = ExtResource("1_fiuhb")
+
+[node name="OceanEnvironment" type="WorldEnvironment" parent="." unique_id=646801500]
+environment = SubResource("Environment_ogne1")
+
+[node name="Submarine" parent="." unique_id=1938863406 instance=ExtResource("2_fiuhb")]
+
+[node name="OceanShaders" type="Node3D" parent="." unique_id=208957007]
+
+[node name="LightRays" type="MeshInstance3D" parent="OceanShaders" unique_id=914657913]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25.286278, 78.63696)
+mesh = SubResource("PlaneMesh_6bs85")
+
+[node name="Fishes" type="Node3D" parent="." unique_id=1171434936 groups=["Fishes"]]
+
+[node name="SeaMothafuckinFloor" type="MeshInstance3D" parent="." unique_id=673093555]
+transform = Transform3D(1, 0, 0, 0, 0.9997037, 0.024340212, 0, -0.024340212, 0.9997037, 0, -181.975, 5.871)
+mesh = SubResource("BoxMesh_6bs85")
+
+[node name="MarineSnow" type="GPUParticles3D" parent="." unique_id=755776929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -173.60551, 20.069735)
+amount = 4000
+lifetime = 30.0
+visibility_aabb = AABB(0, 0, 0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_6bs85")
+draw_pass_1 = SubResource("PointMesh_mn261")

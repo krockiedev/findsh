@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dsaget4xeennn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0oxhw"]
+size = Vector3(0.2607422, 0.05517578, 0.5498047)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kwec"]
+albedo_color = Color(0, 1, 0.15294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kwec"]
+material = SubResource("StandardMaterial3D_4kwec")
+size = Vector3(0.14453125, 0.05847168, 0.16210938)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4kwec"]
+data = PackedVector3Array(-0.072299995, 0.029199999, 0.081099994, 0.072299995, 0.029199999, 0.081099994, -0.072299995, -0.029199999, 0.081099994, 0.072299995, 0.029199999, 0.081099994, 0.072299995, -0.029199999, 0.081099994, -0.072299995, -0.029199999, 0.081099994, 0.072299995, 0.029199999, -0.081099994, -0.072299995, 0.029199999, -0.081099994, 0.072299995, -0.029199999, -0.081099994, -0.072299995, 0.029199999, -0.081099994, -0.072299995, -0.029199999, -0.081099994, 0.072299995, -0.029199999, -0.081099994, 0.072299995, 0.029199999, 0.081099994, 0.072299995, 0.029199999, -0.081099994, 0.072299995, -0.029199999, 0.081099994, 0.072299995, 0.029199999, -0.081099994, 0.072299995, -0.029199999, -0.081099994, 0.072299995, -0.029199999, 0.081099994, -0.072299995, 0.029199999, -0.081099994, -0.072299995, 0.029199999, 0.081099994, -0.072299995, -0.029199999, -0.081099994, -0.072299995, 0.029199999, 0.081099994, -0.072299995, -0.029199999, 0.081099994, -0.072299995, -0.029199999, -0.081099994, 0.072299995, 0.029199999, 0.081099994, -0.072299995, 0.029199999, 0.081099994, 0.072299995, 0.029199999, -0.081099994, -0.072299995, 0.029199999, 0.081099994, -0.072299995, 0.029199999, -0.081099994, 0.072299995, 0.029199999, -0.081099994, -0.072299995, -0.029199999, 0.081099994, 0.072299995, -0.029199999, 0.081099994, -0.072299995, -0.029199999, -0.081099994, 0.072299995, -0.029199999, 0.081099994, 0.072299995, -0.029199999, -0.081099994, -0.072299995, -0.029199999, -0.081099994)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncfea"]
+albedo_color = Color(0.9965728, 0, 0.15456036, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ncfea"]
+material = SubResource("StandardMaterial3D_ncfea")
+size = Vector3(0.14453125, 0.05847168, 0.16210938)
+
+[node name="Lever" type="Node3D" unique_id=142756749]
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=1112448584]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.03542778, -0.070074365)
+mesh = SubResource("BoxMesh_0oxhw")
+
+[node name="Up_Button" type="Area3D" parent="." unique_id=883800340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.239397, 0)
+
+[node name="Button" type="MeshInstance3D" parent="Up_Button" unique_id=1200638457]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.10792589, -0.019075159)
+mesh = SubResource("BoxMesh_4kwec")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Up_Button" unique_id=779169215]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.10792589, -0.019075159)
+shape = SubResource("ConcavePolygonShape3D_4kwec")
+
+[node name="Down_Button" type="Area3D" parent="." unique_id=2141908667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0836122, 0)
+
+[node name="Button" type="MeshInstance3D" parent="Down_Button" unique_id=2108850656]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.10792589, -0.019075159)
+mesh = SubResource("BoxMesh_ncfea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Down_Button" unique_id=1094630618]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.10792589, -0.019075159)
+shape = SubResource("ConcavePolygonShape3D_4kwec")
+
+[connection signal="input_event" from="Up_Button" to="." method="pressed_up"]
+[connection signal="mouse_entered" from="Up_Button" to="." method="_on_up_button_mouse_entered"]
+[connection signal="input_event" from="Down_Button" to="." method="pressed_down"]

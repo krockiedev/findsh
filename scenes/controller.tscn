@@ -1,0 +1,252 @@
+[gd_scene format=4 uid="uid://cd7rebgsdt1fd"]
+
+[ext_resource type="Script" uid="uid://byp0fawrros0h" path="res://script/lever.gd" id="1_60fnl"]
+[ext_resource type="AudioStream" uid="uid://bkcc67anhpivl" path="res://assets/SFX/ButtonDownSFX.mp3" id="2_um401"]
+[ext_resource type="AudioStream" uid="uid://e5d850rs7teo" path="res://assets/SFX/ButtonUpSFX.mp3" id="3_a3fk4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70735"]
+resource_name = "Square"
+cull_mode = 2
+albedo_color = Color(0.53796816, 0.53796816, 0.53796816, 1)
+metallic = 0.26760563
+roughness = 0.69718313
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ucd1r"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Square",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8h0bg"]
+resource_name = "Buttons_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_70735"),
+"name": "Square",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ucd1r")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_idnuo"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Square",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fgmrw"]
+resource_name = "Buttons_Cube_003"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_70735"),
+"name": "Square",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_idnuo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8k0ai"]
+resource_name = "Down"
+cull_mode = 2
+albedo_color = Color(0.9063355, 0.50772476, 0.38600722, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rty8v"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAACAAQAAwAEAAIAAAAFAAEABQADAAEABQAAAAQABQAEAAMA"),
+"name": "Down",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("/38AAP//AAAAAP//AAAAAAAA/////wAA/////wAAAAD///////8AAP9/AAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l1ohe"]
+resource_name = "Buttons_Cube_005"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//n/8//5//f/9f/z//X/8//58AAP+f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAIAAkABwAKAAgACwAMAA0ADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_8k0ai"),
+"name": "Down",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("/38AAP//9eAAAP//AAD14AAA//////Xg/38AAAAA9eD/fwAAAAD///////8AAP//AAD//wAA////fwAAAABoy////////2jL/////wAAaMv/fwAA//9oy/9/AAD//xutAAD/////G63///////8brf////8AAP//AAD///////8AAP//AAD/////////////Gs/H4RrPx+Eaz8fhGs/H4eOwGs/jsBrP47Aaz2AjPjlgIz45YCM+OWAjPjn/////////////////f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rty8v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ye3dd"]
+resource_name = "Up"
+cull_mode = 2
+albedo_color = Color(0.5241173, 0.9063355, 0.50610214, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o52cs"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAAAAAIAAwAEAAIAAAAFAAEABQADAAEABQAAAAQABQAEAAMA"),
+"name": "Up",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP//AAD/f///AAAAAP9//////wAA//8AAAAAAAD//wAA//8AAAAAAAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6gymu"]
+resource_name = "Buttons_Cube_006"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//X/9//5//f/9f/3//n/8//5//f/9f/z//X/8//18AAP+fAAD/H/9//1//P/9f/3//H/8/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAIAAkABwAKAAgACwAMAA0ADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_ye3dd"),
+"name": "Up",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAP//aMv/f///AABoy/9//////2jLAAAAAAAAaMsAAAAAAAD/////AAAAAP///3///wAA/////wAAAAD14P9///////Xg/3///wAA9eD//wAA///14P//AAD//xutAAAAAP//G63/f/////8brQAAAAAAAP+///8AAP///7///wAAAAD/vwAAAAD///+/ntzAxp7cwMae3MDGntzAxuOwGs/jsBrP47Aaz+QwNx7kMDce5DA3HuQwNx7///////////////8AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_o52cs")
+
+[sub_resource type="Animation" id="Animation_b55d8"]
+resource_name = "DownButtonAction"
+length = 0.5416667
+tracks/0/type = "scale_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("DownButton")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.04384482, 0.043445554, 0.021612026, 0.06666667, 1, 0.04384482, 0.043429293, 0.02117732, 0.1, 1, 0.04384482, 0.04339135, 0.020163007, 0.13333334, 1, 0.04384482, 0.043333083, 0.018605314, 0.2, 1, 0.04384482, 0.043192163, 0.0148378685, 0.23333333, 1, 0.04384482, 0.043133892, 0.013280174, 0.26666668, 1, 0.04384482, 0.043095946, 0.012265862, 0.33333334, 1, 0.04384482, 0.043106787, 0.012555665, 0.36666667, 1, 0.04384482, 0.043160994, 0.014004683, 0.4, 1, 0.04384482, 0.04322739, 0.01577973, 0.43333334, 1, 0.04384482, 0.04329785, 0.017663453, 0.46666667, 1, 0.04384482, 0.04336425, 0.0194385, 0.5, 1, 0.04384482, 0.043418452, 0.020887516, 0.5416667, 1, 0.04384482, 0.043445554, 0.021612026)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("UpButton")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.04384482, 0.043445554, 0.021612026)
+
+[sub_resource type="Animation" id="Animation_lmg7a"]
+resource_name = "UpButtonAction"
+length = 0.5416667
+tracks/0/type = "scale_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpButton")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.04384482, 0.043445554, 0.021612026, 0.06666667, 1, 0.04384482, 0.043401323, 0.02049034, 0.1, 1, 0.04384482, 0.043358922, 0.019415006, 0.13333334, 1, 0.04384482, 0.043308843, 0.018144997, 0.16666667, 1, 0.04384482, 0.043255474, 0.01679156, 0.2, 1, 0.04384482, 0.043206494, 0.015549361, 0.26666668, 1, 0.04384482, 0.043142527, 0.013927088, 0.33333334, 1, 0.04384482, 0.043155327, 0.014251714, 0.36666667, 1, 0.04384482, 0.043201763, 0.015429364, 0.4, 1, 0.04384482, 0.04325865, 0.016871985, 0.43333334, 1, 0.04384482, 0.043319013, 0.01840293, 0.46666667, 1, 0.04384482, 0.0433759, 0.019845553, 0.5, 1, 0.04384482, 0.043422338, 0.021023199, 0.5416667, 1, 0.04384482, 0.043445554, 0.021612026)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("DownButton")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.04384482, 0.043445554, 0.021612026)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4psu0"]
+_data = {
+&"DownButtonAction": SubResource("Animation_b55d8"),
+&"UpButtonAction": SubResource("Animation_lmg7a")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3prpj"]
+size = Vector3(0.11816406, 0.045898438, 0.10131836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_um401"]
+size = Vector3(0.1015625, 0.045898438, 0.095703125)
+
+[node name="Controller" type="Node3D" unique_id=735387554]
+script = ExtResource("1_60fnl")
+
+[node name="Buttons" type="Node3D" parent="." unique_id=719318848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09301171, -1.3784992)
+
+[node name="ButtonStand" type="MeshInstance3D" parent="Buttons" unique_id=1128536003]
+transform = Transform3D(0.037180487, 0, 0, 0, 0.38421693, -0.0028485889, 0, 0.05662316, 0.019329125, 0, -0.5891936, 1.2991269)
+mesh = SubResource("ArrayMesh_8h0bg")
+
+[node name="ControllerStand" type="MeshInstance3D" parent="Buttons" unique_id=278004462]
+transform = Transform3D(0.07000001, 0, 0, 0, 0.14908168, -0.0071619228, 0, 0.021970596, 0.048597287, 0, -0.098403394, 1.3714561)
+mesh = SubResource("ArrayMesh_fgmrw")
+
+[node name="DownButton" type="MeshInstance3D" parent="Buttons" unique_id=50471622]
+transform = Transform3D(0.04384482, 0, 0, 0, 0.04293446, -0.003305196, 0, 0.0066442564, 0.021357816, 0, -0.14316033, 1.3179721)
+mesh = SubResource("ArrayMesh_l1ohe")
+
+[node name="UpButton" type="MeshInstance3D" parent="Buttons" unique_id=439100428]
+transform = Transform3D(0.04384482, 0, 0, 0, 0.04293446, -0.0033051968, 0, 0.0066442573, 0.021357816, 0, -0.01896298, 1.3391036)
+mesh = SubResource("ArrayMesh_6gymu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons" unique_id=1763581766]
+libraries/ = SubResource("AnimationLibrary_4psu0")
+
+[node name="Up_Button" type="Area3D" parent="Buttons" unique_id=882842662]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Up_Button" unique_id=1151436143]
+transform = Transform3D(1, -7.1448625e-09, 4.632107e-08, 4.1828194e-08, -0.30982253, -0.9507942, 2.1144587e-08, 0.95079446, -0.30982244, 0.0002954509, -0.014589936, 1.3338342)
+shape = SubResource("BoxShape3D_3prpj")
+
+[node name="Down_Button" type="Area3D" parent="Buttons" unique_id=1793317631]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Down_Button" unique_id=1415556796]
+transform = Transform3D(1, -6.319766e-09, 2.9960248e-08, 2.8042656e-08, -0.20386568, -0.97899866, 1.2294805e-08, 0.9789989, -0.20386565, 3.7252903e-09, -0.13827398, 1.2926416)
+shape = SubResource("BoxShape3D_um401")
+
+[node name="ButtonDownSFX" type="AudioStreamPlayer3D" parent="." unique_id=942035939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.050056577, 0)
+stream = ExtResource("2_um401")
+volume_db = 10.0
+unit_size = 30.0
+
+[node name="ButtonUpSFX" type="AudioStreamPlayer3D" parent="." unique_id=580259849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.078401834, 0)
+stream = ExtResource("3_a3fk4")
+volume_db = 10.0
+unit_size = 30.0
+
+[connection signal="input_event" from="Buttons/Up_Button" to="." method="pressed_up"]
+[connection signal="input_event" from="Buttons/Down_Button" to="." method="pressed_down"]

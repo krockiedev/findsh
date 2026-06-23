@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d4h7ar3h2a1ke"]
+
+[ext_resource type="Script" uid="uid://d2usd880jai1c" path="res://script/interactablefish.gd" id="1_ntctq"]
+[ext_resource type="PackedScene" uid="uid://cqclfh2a6ca5u" path="res://assets/Blender/FishGLB/Sunfish.glb" id="2_ntctq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5tag"]
+cull_mode = 1
+shading_mode = 0
+grow_amount = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6it2"]
+resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_r5tag")
+albedo_color = Color(0, 0.17254902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhiki"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_r6it2")
+size = Vector3(1, 0.86157227, 1.9033203)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0oxhw"]
+size = Vector3(1.1191406, 1, 2.0566406)
+
+[node name="Sunfish" type="Area3D" unique_id=335977634]
+script = ExtResource("1_ntctq")
+
+[node name="Sunfish" parent="." unique_id=1784991942 instance=ExtResource("2_ntctq")]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1805165206]
+visible = false
+mesh = SubResource("BoxMesh_jhiki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1052382723]
+shape = SubResource("BoxShape3D_0oxhw")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1030177092]
+
+[connection signal="input_event" from="." to="." method="_on_fish_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -1,0 +1,336 @@
+[gd_scene format=3 uid="uid://t0oty28sn0sl"]
+
+[ext_resource type="Script" uid="uid://bcjr5okwa3k5q" path="res://script/fish_info.gd" id="1_00l1l"]
+[ext_resource type="Texture2D" uid="uid://dtw6lok5qkmjw" path="res://assets/dashed_image_frame.png" id="2_erwc4"]
+[ext_resource type="PackedScene" uid="uid://btts0evqg6nd3" path="res://scenes/fishes/milk_fish.tscn" id="2_f554r"]
+[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/fishes/whale_shark.tscn" id="2_iod5n"]
+[ext_resource type="PackedScene" uid="uid://daexeyu477f0m" path="res://scenes/fishes/f_anglerfish.tscn" id="2_tru72"]
+[ext_resource type="PackedScene" uid="uid://d4h7ar3h2a1ke" path="res://scenes/fishes/sunfish.tscn" id="3_33570"]
+[ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/fishes/anglerfish.tscn" id="3_bsbeo"]
+[ext_resource type="PackedScene" uid="uid://c45klm7n10mfd" path="res://scenes/fishes/clown_fish.tscn" id="5_411o8"]
+[ext_resource type="Texture2D" uid="uid://dsbxy6f7a7jx8" path="res://assets/NotebookSprite.jpg" id="5_33570"]
+[ext_resource type="PackedScene" uid="uid://xcmaihnilmgx" path="res://scenes/fishes/jellyfish.tscn" id="6_6nyc8"]
+[ext_resource type="PackedScene" uid="uid://dco3okv5b5me7" path="res://scenes/picture_holder.tscn" id="6_vtiuw"]
+[ext_resource type="PackedScene" uid="uid://dtvqrpryiafwv" path="res://scenes/fishes/scale_fish.tscn" id="7_dt5f2"]
+[ext_resource type="PackedScene" uid="uid://blk853cbb6qfl" path="res://scenes/fishes/mandarin_fish.tscn" id="8_fafsl"]
+[ext_resource type="PackedScene" uid="uid://xergoasaqwfd" path="res://scenes/fishes/f_sunfish.tscn" id="10_1n7fh"]
+[ext_resource type="Texture2D" uid="uid://b707u30q6eexw" path="res://assets/Polaroid.jpg" id="14_2b1tc"]
+[ext_resource type="AudioStream" uid="uid://bbe840sqcd1e6" path="res://assets/PicturePrinting.mp3" id="16_ybvo8"]
+
+[node name="Fish_Info" type="Control" unique_id=690316]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_00l1l")
+
+[node name="Confirm" type="Button" parent="." unique_id=1814614726]
+visible = false
+layout_mode = 0
+offset_left = 687.0
+offset_top = 297.0
+offset_right = 812.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 30
+text = "Confirm"
+
+[node name="Undo" type="Button" parent="." unique_id=1884902318]
+visible = false
+layout_mode = 0
+offset_left = 687.0
+offset_top = 372.0
+offset_right = 812.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 30
+text = "Undo"
+
+[node name="Fishes" type="Node3D" parent="." unique_id=654929814]
+
+[node name="F_Anglerfish" parent="Fishes" unique_id=335977634 instance=ExtResource("2_tru72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -233.52853, 0, 0)
+image_camera_pos = Vector3(-231.196, -0.128, 0.425)
+image_camera_rot = Vector3(11.7, 69, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Fishes" unique_id=758418553]
+transform = Transform3D(0.35836297, 0.19011629, 0.91401964, 0, 0.9790455, -0.20364168, -0.93358237, 0.07297764, 0.35085365, -231.19568, -0.12811035, 0.42522466)
+
+[node name="Milk_Fish" parent="Fishes" unique_id=521504428 instance=ExtResource("2_f554r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.69964, 0, 0)
+image_camera_pos = Vector3(-98.343, -0.042, 0.256)
+image_camera_rot = Vector3(-0.7, 54.3, 0)
+model = true
+
+[node name="Anglerfish" parent="Fishes" unique_id=1754167260 instance=ExtResource("3_bsbeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4831123, 0, 0)
+image_camera_pos = Vector3(-7.212, 1.237, 1.237)
+image_camera_rot = Vector3(-32, 11, 0)
+model = true
+
+[node name="Sunfish" parent="Fishes" unique_id=196669841 instance=ExtResource("3_33570")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.641291, -0.030323386, 0)
+image_camera_pos = Vector3(8.271, 0.171, 1.595)
+image_camera_rot = Vector3(-7, 28.8, 0)
+model = true
+
+[node name="Whale_Shark" parent="Fishes" unique_id=1258915648 instance=ExtResource("2_iod5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.332302, -0.20844293, 0.106678724)
+image_camera_pos = Vector3(31.012, -0.181, 1.156)
+image_camera_rot = Vector3(-12, -71.5, 0)
+model = true
+
+[node name="Clown_Fish" parent="Fishes" unique_id=2011531843 instance=ExtResource("5_411o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.611374, 0, 0)
+image_camera_pos = Vector3(-16.953, 0.181, 0.747)
+image_camera_rot = Vector3(-9.7, 53.3, 0)
+model = true
+
+[node name="Jellyfish" parent="Fishes" unique_id=1827293826 instance=ExtResource("6_6nyc8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.197615, 0, 0.6280503)
+image_camera_pos = Vector3(-27.241, -0.013, 0.24)
+image_camera_rot = Vector3(-4.8, 81.8, 0)
+model = true
+
+[node name="Scale_Fish" parent="Fishes" unique_id=1389600938 instance=ExtResource("7_dt5f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.75936, 0, -1.0823183)
+image_camera_pos = Vector3(-33.533, 0.021, -0.795)
+image_camera_rot = Vector3(-6, 57.3, 0)
+model = true
+
+[node name="Mandarin_Fish" parent="Fishes" unique_id=721411030 instance=ExtResource("8_fafsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.71959, 0, 0)
+image_camera_pos = Vector3(-72.235, -0.139, 1.507)
+image_camera_rot = Vector3(4.8, 24.5, 0)
+model = true
+
+[node name="F_Sunfish" parent="Fishes" unique_id=1911243680 instance=ExtResource("10_1n7fh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.95207, 0, 0)
+image_camera_pos = Vector3(-119.76, 0.667, 1.022)
+image_camera_rot = Vector3(-12.5, 62, 0)
+model = true
+
+[node name="Open_Book" type="Button" parent="." unique_id=1627911381]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -18.0
+offset_right = 168.0
+offset_bottom = 18.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "Open Log Book"
+
+[node name="Log_Book" type="TextureRect" parent="." unique_id=542124344]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30800003
+anchor_top = 0.504
+anchor_right = 0.30800003
+anchor_bottom = 0.504
+offset_left = -198.24005
+offset_top = -299.88
+offset_right = 2282.76
+offset_bottom = 3208.12
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1699705, 0.1699705)
+mouse_filter = 2
+texture = ExtResource("5_33570")
+
+[node name="0" parent="Log_Book" unique_id=1343942879 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="1" parent="Log_Book" unique_id=574853807 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="2" parent="Log_Book" unique_id=1498022317 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="3" parent="Log_Book" unique_id=1707287650 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="4" parent="Log_Book" unique_id=2111795003 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="5" parent="Log_Book" unique_id=673239770 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="6" parent="Log_Book" unique_id=699983571 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="7" parent="Log_Book" unique_id=1596243662 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="8" parent="Log_Book" unique_id=250356711 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="9" parent="Log_Book" unique_id=1847999762 instance=ExtResource("6_vtiuw")]
+visible = false
+position = Vector2(704.9458, 466.26337)
+scale = Vector2(7.474677, 7.474677)
+
+[node name="Polaroid" type="Sprite2D" parent="Log_Book" unique_id=1758485643]
+position = Vector2(1276.6921, 1047.2406)
+scale = Vector2(2.287979, 2.268752)
+texture = ExtResource("14_2b1tc")
+
+[node name="Fish_Name" type="Label" parent="Log_Book" unique_id=684786700]
+layout_mode = 0
+offset_left = 621.68445
+offset_top = 1787.343
+offset_right = 968.7519
+offset_bottom = 1824.4587
+scale = Vector2(4.7819977, 4.7819977)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Large Fish"
+autowrap_mode = 2
+
+[node name="Where_To_Find" type="Label" parent="Log_Book" unique_id=1181268676]
+layout_mode = 0
+offset_left = 1071.2955
+offset_top = 2109.2869
+offset_right = 1362.6465
+offset_bottom = 2146.4026
+scale = Vector2(4.7819977, 4.7819977)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "In the water"
+autowrap_mode = 2
+
+[node name="Where_To_Find2" type="Label" parent="Log_Book" unique_id=1982352990]
+layout_mode = 0
+offset_left = 817.78894
+offset_top = 2553.3843
+offset_right = 1137.6714
+offset_bottom = 2623.5125
+scale = Vector2(4.7819977, 4.7819977)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Fishy"
+autowrap_mode = 2
+
+[node name="Where_To_Find3" type="Label" parent="Log_Book" unique_id=1902312469]
+layout_mode = 0
+offset_left = 632.7859
+offset_top = 2908.5955
+offset_right = 924.1368
+offset_bottom = 2945.7112
+scale = Vector2(4.7819977, 4.7819977)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Small"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Log_Book" unique_id=38915489]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(6.131669, 6.131669)
+mouse_filter = 2
+
+[node name="Image_Frame" type="TextureRect" parent="Log_Book" unique_id=1887224206]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -541.105
+offset_top = -1293.2874
+offset_right = -352.8109
+offset_bottom = -1104.9933
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.131669, 6.131669)
+mouse_filter = 2
+texture = ExtResource("2_erwc4")
+
+[node name="Previous_Page" type="Button" parent="Log_Book" unique_id=1578307727]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -169.72595
+offset_top = -316.4961
+offset_right = -144.72595
+offset_bottom = -266.4961
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(6.131669, 6.131669)
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[node name="Next_Page" type="Button" parent="Log_Book" unique_id=1890278313]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 21.150269
+offset_top = -316.4961
+offset_right = 46.15027
+offset_bottom = -266.4961
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(6.131669, 6.131669)
+theme_override_font_sizes/font_size = 30
+text = ">"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1238168714]
+
+[node name="Timer" type="Timer" parent="." unique_id=912837960]
+one_shot = true
+
+[node name="Camera_Flash" type="ColorRect" parent="." unique_id=1422899378]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -12.0
+offset_right = -5.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+
+[node name="Print" type="AudioStreamPlayer" parent="." unique_id=1973983966]
+stream = ExtResource("16_ybvo8")
+
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Open_Book" to="." method="_on_open_book_pressed"]
+[connection signal="pressed" from="Log_Book/Previous_Page" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="Log_Book/Next_Page" to="." method="_on_next_page_pressed"]

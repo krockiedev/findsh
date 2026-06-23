@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://75gmhqbfkh3"
+path="res://.godot/imported/MainMenuMusicOceanX (1).mp3-6d598af920f1f3354c6d9d900ecf9cea.mp3str"
+
+[deps]
+
+source_file="res://assets/MainMenuMusicOceanX (1).mp3"
+dest_files=["res://.godot/imported/MainMenuMusicOceanX (1).mp3-6d598af920f1f3354c6d9d900ecf9cea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
